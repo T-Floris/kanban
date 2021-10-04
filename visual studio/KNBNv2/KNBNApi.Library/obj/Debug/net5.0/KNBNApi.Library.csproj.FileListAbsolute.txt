@@ -1,0 +1,11 @@
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\KNBNApi.Library.deps.json
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\KNBNApi.Library.dll
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\ref\KNBNApi.Library.dll
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\KNBNApi.Library.pdb
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.AssemblyInfoInputs.cache
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.AssemblyInfo.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.csproj.CoreCompileInputs.cache
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.dll
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\ref\KNBNApi.Library.dll
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.pdb

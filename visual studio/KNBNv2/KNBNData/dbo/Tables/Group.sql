@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Group]
+(
+	[Id] INT NOT NULL IDENTITY, 
+    [UserId] NVARCHAR(128) NOT NULL,
+	[Name] NVARCHAR(50) NOT NULL, 
+    [Color] NVARCHAR(7) NOT NULL, 
+    CONSTRAINT [PK_Group_Id] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Group_User_Id] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]),
+)
