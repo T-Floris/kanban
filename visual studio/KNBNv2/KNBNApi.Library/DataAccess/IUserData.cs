@@ -9,9 +9,7 @@ namespace KNBNApi.Library.DataAccess
 {
     public interface IUserData
     {
-        public interface IUserData
-        {
-            List<UserModel> GetUserById(string Id);
-        }
+        List<UserModel> GetUserById(string Id);
+        
     }
 }

@@ -1,11 +1,16 @@
 ﻿using KNBNApi.Data;
+using KNBNApi.Library.DataAccess;
+using KNBNApi.Library.Models;
+using KNBNApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace KNBNApi.Controllers
