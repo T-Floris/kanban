@@ -4,14 +4,14 @@
     "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj": {
+    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
-        "projectName": "KNBNDesktopUI",
-        "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
+        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj",
+        "projectName": "KNBNDesktopUI.Library",
+        "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj",
         "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\obj\\",
+        "outputPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,99 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
+        "projectName": "KNBNDesktopUI",
+        "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
+        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj": {
+                "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "Caliburn.Micro": {
+              "target": "Package",
+              "version": "[4.0.173, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

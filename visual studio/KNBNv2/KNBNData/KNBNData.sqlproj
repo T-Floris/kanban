@@ -75,4 +75,7 @@
     <Build Include="dbo\Tables\BoardGroup.sql" />
     <Build Include="dbo\Tables\Board.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="PublishLocations\KNBNData.publish.xml" />
+  </ItemGroup>
 </Project>

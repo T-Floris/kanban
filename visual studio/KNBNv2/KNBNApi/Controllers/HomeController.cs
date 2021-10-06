@@ -1,4 +1,5 @@
 ﻿using KNBNApi.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,10 +13,15 @@ namespace KNBNApi.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, RoleManager<IdentityRole> roleManager
+            , UserManager<IdentityUser> userManager)
         {
             _logger = logger;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -23,8 +29,34 @@ namespace KNBNApi.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
+            /**
+ * This is used to initialized our db with roles and assign a user with whatever roles created
+ */
+
+            
+            string[] roles = { "Admin", "Cashier", "Manager" };
+
+            foreach (var role in roles)
+            {
+                var roleExist = await _roleManager.RoleExistsAsync(role);
+
+                if (roleExist == false)
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(role));
+                }
+            }
+
+            var user = await _userManager.FindByEmailAsync("tino@mail.dk");
+
+            if (user != null)
+            {
+                await _userManager.AddToRoleAsync(user, "Admin");
+                await _userManager.AddToRoleAsync(user, "Cashier");
+            }
+            
+
             return View();
         }
 
