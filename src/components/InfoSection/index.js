@@ -46,10 +46,10 @@ const InfoSection = ({
                     to="Home"
                     smooth={true}
                     duration={500}
-                    spy={true}
+                    spy={true} //spy is a must for active class
                     exact="true"
-                    offset={-80}
-                    primary={primary ? 1 : 0}
+                    offset={-80} //navbar
+                    primary={primary ? 1 : 0} //true or false
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
                   >
