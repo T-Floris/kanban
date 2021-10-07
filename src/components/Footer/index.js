@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin} from "react-icons/fa"
+import { animateScroll as scroll } from "react-scroll";
 import {
   FooterContainer,
   FooterWrap,
@@ -16,6 +17,11 @@ import {
 } from "./FooterElements";
 
 const Footer = () => {
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  }
+
   return (
     <FooterContainer>
       <FooterWrap>
@@ -52,7 +58,7 @@ const Footer = () => {
           </FooterLinksWrapper>
         </FooterLinksContainer>
         <SocialMediaWrap>
-          <SoicalLogo to="/">Kanban</SoicalLogo>
+          <SoicalLogo to="/" onClick={toggleHome}>Kanban</SoicalLogo>
           <WebsiteRights>
             Kanban &copy; {new Date().getFullYear()} All rights reserved.
           </WebsiteRights>

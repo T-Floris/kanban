@@ -1,8 +1,8 @@
 export const homeObjOne = {
   id: "about",
-  lightBackground: false,
-  lightText: true,
-  lightTextDesc: true,
+  lightBackground: true,
+  lightText: false,
+  lightTextDesc: false,
   topLine: "test",
   headLine: "headline",
   description: "something",
@@ -10,9 +10,9 @@ export const homeObjOne = {
   imgStart: false, //switch between col1 & col2
   img: require('../../images/svg-1.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "test",
-  dark: true,
-  primary: true,
-  darkText: false,
+  dark: false,
+  primary: false,
+  darkText: true,
 };
 
 export const homeObjTwo = {
@@ -27,13 +27,13 @@ export const homeObjTwo = {
   imgStart: true, //switch between col1 & col2
   img: require('../../images/svg-2.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "test",
-  dark: false,
-  primary: false,
+  dark: true,
+  primary: true,
   darkText: true,
 };
 
 export const homeObjThree = {
-  id: "services",
+  id: "",
   lightBackground: true,
   lightText: false,
   lightTextDesc: false,
@@ -44,7 +44,7 @@ export const homeObjThree = {
   imgStart: false, //switch between col1 & col2
   img: require('../../images/svg-3.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "test",
-  dark: false,
-  primary: false,
+  dark: true,
+  primary: true,
   darkText: true,
 };

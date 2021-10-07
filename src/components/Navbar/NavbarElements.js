@@ -3,16 +3,18 @@ import { Link as LinkRouter } from "react-router-dom";
 import { Link as LinkScroll } from "react-scroll";
 
 export const Nav = styled.nav`
-  background: ${({scrollNav}) => (scrollNav ? '#000' : 'transparent')};
+  background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
   height: 80px;
   margin-top: -80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+  font-weight: bold;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 0 10px rgb(0 0 0 / 30%);
 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
@@ -80,9 +82,12 @@ export const NavLinks = styled(LinkScroll)`
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+  }
   &.active {
-    border-bottom: 3px solid #01bf71;
+    border-bottom: 3px solid #4622D8;
   }
 `;
 
@@ -96,20 +101,22 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(LinkRouter)`
-  border-radius: 50px;
-  background: #01bf71;
+  border-radius: 10px;
+  background: #562BF6;
   white-space: nowrap;
   padding: 10px 22px;
-  color: #010606;
+  color: #fff;
   font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
   transition: all 0.2 ease-in-out;
   text-decoration: none;
+  margin: 5px;
 
   &:hover {
     transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
     background: #fff;
     color: #010606;
   }
