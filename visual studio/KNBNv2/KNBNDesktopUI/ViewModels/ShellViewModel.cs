@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace KNBNDesktopUI.ViewModels
 {
-    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<object>
     {
         private IEventAggregator _events;
         private ILoggedInUserModel _user;
@@ -61,6 +61,8 @@ namespace KNBNDesktopUI.ViewModels
         public async Task LogIn()
         {
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
+
+            await ChangeActiveItemAsync(IoC.Get<LoginViewModel>(), true, new CancellationToken());
         }
 
         public async Task LogOut()
@@ -77,18 +79,41 @@ namespace KNBNDesktopUI.ViewModels
         {
             await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), new CancellationToken());
         }
-
-        //public void Handle(LogOnEvent message)
-        //{
-        //    ActivateItem(_salesVM);
-        //    NotifyOfPropertyChange(() => IsLoggedIn);
-        //}
-
+        /*
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
-            await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), cancellationToken);
+
+            await ActivateItemAsync(IoC.Get<RegisterViewModel>(), cancellationToken);
             NotifyOfPropertyChange(() => IsLoggedIn);
             NotifyOfPropertyChange(() => IsLoggedOut);
+        }
+        public Task HandleAsync(EventHandler message, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        */
+        public async Task HandleAsync(object ob, CancellationToken cancellationToken)
+        {
+            string eventName = ob.GetType().ToString().Trim().Replace("Event", "").Replace("KNBNDesktopUI.Models.", "");
+
+            switch (eventName)
+            {
+                case "Register":
+                    await ActivateItemAsync(IoC.Get<RegisterViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
+                    break;
+
+                case "LogOn":
+                    await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

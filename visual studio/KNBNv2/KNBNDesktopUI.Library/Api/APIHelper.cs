@@ -96,6 +96,9 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
-
+        public Task CreateUser(string FirstName, string LastName, string Email, string UserName, string Password, string Password_repeat)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

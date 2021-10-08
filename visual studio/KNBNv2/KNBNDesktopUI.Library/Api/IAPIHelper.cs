@@ -16,6 +16,8 @@ namespace KNBNDesktopUI.Library.Api
 
         void LogOffUser();
 
+        Task CreateUser(string FirstName, string LastName, string Email, string UserName, string Password, string Password_repeat);
+
         HttpClient ApiClient { get; }
     }
 }

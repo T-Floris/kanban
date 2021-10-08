@@ -97,3 +97,5 @@ C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Deb
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.csproj.GenerateResource.cache
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\App.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\RegisterView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\RegisterView.baml

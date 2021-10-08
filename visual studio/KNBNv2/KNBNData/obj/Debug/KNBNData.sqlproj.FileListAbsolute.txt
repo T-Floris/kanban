@@ -4,7 +4,3 @@ C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KN
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.dll
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.pdb
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.sqlproj.AssemblyReference.cache
-C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\Model.xml
-C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\refactor.xml
-C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\postdeploy.sql
-C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\predeploy.sql

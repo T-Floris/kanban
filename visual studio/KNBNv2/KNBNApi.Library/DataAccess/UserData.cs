@@ -26,7 +26,7 @@ namespace KNBNApi.Library.DataAccess
 
         public void CreateUser(UserModel user)
         {
-            _sql.SaveData("dbo.spUser_Insert", new { user.Id, user.FirstName, user.LastName, user.EmailAddress }, "KNBNData");
+            _sql.SaveData("dbo.spUser_Insert", new { user.Id, user.FirstName, user.LastName, user.EmailAddress, user.UserName }, "KNBNData");
         }
     }
 }

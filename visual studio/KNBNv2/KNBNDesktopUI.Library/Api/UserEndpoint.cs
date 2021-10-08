@@ -72,5 +72,25 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
+        public async Task CreateUser(CreateUserModel model)
+        {
+            var data = new
+            {
+                model.FirstName,
+                model.LastName,
+                model.EmailAddress,
+                model.Password,
+                model.UserName
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("api/User/Register", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }

@@ -105,5 +105,20 @@ namespace KNBNDesktopUI.ViewModels
                 ErrorMessage = ex.Message;
             }
         }
+
+        public async Task Register()
+        {
+            try
+            {
+                ErrorMessage = "";
+                await _events.PublishOnUIThreadAsync(new RegisterEvent(), new CancellationToken());
+
+            }
+            catch (Exception ex)
+            {
+
+                ErrorMessage = ex.Message;
+            }
+        }
     }
 }

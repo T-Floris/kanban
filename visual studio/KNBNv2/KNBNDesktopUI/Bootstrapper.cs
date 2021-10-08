@@ -72,6 +72,7 @@ namespace KNBNDesktopUI
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                
                 .Singleton<IAPIHelper, APIHelper>();
 
             _container.RegisterInstance(typeof(IConfiguration), "IConfiguration", AddConfiguration());
