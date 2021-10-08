@@ -12,19 +12,23 @@ const Services = () => {
         <ServicesCard>
           <ServicesIcon src={Icon1} />
           <ServicesH2>Time saving</ServicesH2>
-          <ServicesP>We reduce time waste and increase your workflow</ServicesP>
+          <ServicesP>
+            We reduce time waste & increase your efficiency at work.
+          </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon2} />
           <ServicesH2>Online planning</ServicesH2>
           <ServicesP>
-            You can access our platform online anywhere
+            cooperate from anywhere & anytime.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
-          <ServicesH2>test</ServicesH2>
-          <ServicesP>test</ServicesP>
+          <ServicesH2>All platforms</ServicesH2>
+          <ServicesP>
+            You can acces our platform online on any devices & anywhere.
+          </ServicesP>
         </ServicesCard>
       </ServicesWrapper>
     </ServicesContainer>
