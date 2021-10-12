@@ -15,6 +15,8 @@ import {
 } from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
+
+  //navbars background changes color when scrolled
   const [scrollNav, setScrollNav] = useState(false);
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -36,6 +38,7 @@ const Navbar = ({ toggle }) => {
     <>
       {/* <IconContext.Provider value={{ color: '#fff'}}> */}{" "}
       {/* controlls colors of all icons from react-icons */}
+      
       <Nav scrollNav={scrollNav}>
         <NavbarContainer>
           <NavLogo to="/" onClick={toggleHome}>
