@@ -1,7 +1,7 @@
 export const homeObjOne = {
   id: "about",
-  lightBackground: true,
-  lightText: false,
+  lightBackground: true, //background
+  lightText: false, //Heading
   lightTextDesc: false,
   topLine: "Teamwork makes the dream work",
   headLine: "It’s a way of working together.",
@@ -10,9 +10,9 @@ export const homeObjOne = {
   imgStart: false, //switch between col1 & col2
   img: require('../../images/svg-1.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "teamwork",
-  dark: false,
-  primary: false,
-  darkText: true,
+  dark: false, //text color inside button
+  primary: true, //Button
+  darkText: true, //Subtitle
 };
 
 export const homeObjTwo = {
@@ -27,7 +27,7 @@ export const homeObjTwo = {
   imgStart: true, //switch between col1 & col2
   img: require('../../images/svg-2.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "cards",
-  dark: true,
+  dark: false,
   primary: true,
   darkText: true,
 };
@@ -44,7 +44,7 @@ export const homeObjThree = {
   imgStart: false, //switch between col1 & col2
   img: require('../../images/svg-3.svg').default, //react-script version bug, default is needed at the end of require or else it wont display image
   alt: "complete tasks",
-  dark: true,
+  dark: false,
   primary: true,
   darkText: true,
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Video from "../../videos/video.mp4";
-import { Button } from "../ButtonElements";
+import { ButtonTransparent } from "../ButtonElements";
 import {
   HeroContainer,
   HeroBackground,
@@ -21,7 +21,7 @@ const HeroSection = () => {
   };
 
   return (
-    <HeroContainer id='home'>
+    <HeroContainer id="home">
       <HeroBackground>
         <VideoBackground autoPlay loop muted src={Video} type="video/mp4" />
       </HeroBackground>
@@ -29,15 +29,15 @@ const HeroSection = () => {
         <HeroH1>Kanban</HeroH1>
         <HeroP>Kanban helps teams work better.</HeroP>
         <HeroBtnWrapper>
-          <Button
-            to="signup"
+          <ButtonTransparent
+            to='/signin'
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"
             dark="true"
           >
             Get started {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
+          </ButtonTransparent>
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>
