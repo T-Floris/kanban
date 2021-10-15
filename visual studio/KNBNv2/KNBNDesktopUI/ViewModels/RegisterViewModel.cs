@@ -45,7 +45,6 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => FirstName);
             }
         }
-
         public string LastName
         {
             get { return _LastName; }
@@ -55,7 +54,6 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => LastName);
             }
         }
-
         public string Email
         {
             get { return _Email; }
@@ -65,7 +63,6 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => Email);
             }
         }
-
         public string UserName
         {
             get { return _UserName; }
@@ -75,7 +72,6 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => UserName);
             }
         }
-
         public string Password
         {
             get { return _Password; }
@@ -85,7 +81,6 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => Password);
             }
         }
-
         public string ConfirmPassword
         {
             get { return _ConfirmPassword; }
@@ -129,6 +124,8 @@ namespace KNBNDesktopUI.ViewModels
 
         public async Task Register()
         {
+            ErrorMessage = "";
+
             CreateUserModel user = new()
             {
                 FirstName = FirstName,

@@ -30,6 +30,7 @@ namespace KNBNDesktopUI.ViewModels
             {
                 _users = value;
                 NotifyOfPropertyChange(() => Users);
+
             }
         }
 

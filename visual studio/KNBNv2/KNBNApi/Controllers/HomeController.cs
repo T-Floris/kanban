@@ -29,14 +29,14 @@ namespace KNBNApi.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Privacy()
+        public IActionResult Privacy()
         {
             /**
  * This is used to initialized our db with roles and assign a user with whatever roles created
  */
 
-            
-            string[] roles = { "Admin", "Cashier", "Manager" };
+            /*
+            string[] roles = { "Super Admin", "Admin", "User" };
 
             foreach (var role in roles)
             {
@@ -53,9 +53,8 @@ namespace KNBNApi.Controllers
             if (user != null)
             {
                 await _userManager.AddToRoleAsync(user, "Admin");
-                await _userManager.AddToRoleAsync(user, "Cashier");
             }
-            
+            */
 
             return View();
         }

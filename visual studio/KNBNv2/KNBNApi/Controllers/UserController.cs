@@ -44,6 +44,8 @@ namespace KNBNApi.Controllers
 
             return _userData.GetUserById(userId).First();
 
+            
+
         }
 
         [Authorize(Roles = "Admin")]
@@ -163,6 +165,7 @@ namespace KNBNApi.Controllers
                         };
 
                         _userData.CreateUser(u);
+                        await _userManager.AddToRoleAsync(existingUser, "User");
                         return Ok();
                     }
                 }
@@ -170,6 +173,79 @@ namespace KNBNApi.Controllers
 
             return BadRequest();
         }
+
+
+        public record UpdateUserInfoModel(
+            string currentPassword,
+            string newPassword
+        );
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdateUserInfo")]
+        public async Task<IActionResult> UpdateUserInfo(UpdateUserInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                IdentityUser result = await _userManager.FindByIdAsync(loggedInUserId);
+            }
+
+            return BadRequest();
+        }
+
+        public record UpdateEmailModel(
+            string newEmail,
+            string token
+        );
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdateEmail")]
+        public async Task<IActionResult> UpdateEmail(UpdateEmailModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                IdentityUser result = await _userManager.FindByIdAsync(loggedInUserId);               
+
+                await _userManager.ChangeEmailAsync(result, model.newEmail, model.token);
+            }
+
+            return BadRequest();
+        }
+
+        public record UpdatePasswordModel(        
+            string currentPassword, 
+            string newPassword
+        );
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdatePassword")]
+        public async Task<IActionResult> UpdatePassword(UpdatePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                IdentityUser result = await _userManager.FindByIdAsync(loggedInUserId);
+
+                if (await _userManager.CheckPasswordAsync(result, model.currentPassword))
+                {
+                    await _userManager.ChangePasswordAsync(result, model.currentPassword, model.newPassword);
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+            }
+
+            return BadRequest();
+        }
+
     }
 }
-

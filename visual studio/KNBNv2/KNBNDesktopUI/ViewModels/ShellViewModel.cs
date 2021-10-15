@@ -16,12 +16,16 @@ namespace KNBNDesktopUI.ViewModels
         private IEventAggregator _events;
         private ILoggedInUserModel _user;
         private IAPIHelper _apiHelper;
+        private readonly IUserEndpoint _userEndpoint;
 
-        public ShellViewModel(IEventAggregator events, ILoggedInUserModel user, IAPIHelper apiHelper)
+
+        public ShellViewModel(IEventAggregator events, ILoggedInUserModel user, IAPIHelper apiHelper, IUserEndpoint userEndpoint)
         {
             _events = events;
             _user = user;
             _apiHelper = apiHelper;
+            _userEndpoint = userEndpoint;
+
 
             _events.SubscribeOnPublishedThread(this);
 
@@ -29,6 +33,10 @@ namespace KNBNDesktopUI.ViewModels
             // and not having previous data inserted
             ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
         }
+
+
+
+
 
         public bool IsLoggedIn
         {
@@ -53,6 +61,21 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
+        public bool IsAdmin
+        {
+            get
+            {
+                bool output = true;
+
+                if (string.IsNullOrWhiteSpace(_user.Token) == false)
+                {
+                    output = true;
+                }
+
+                return output;
+            }
+        }
+
         public void ExitApplication()
         {
             TryCloseAsync();
@@ -71,14 +94,23 @@ namespace KNBNDesktopUI.ViewModels
             _apiHelper.LogOffUser();
             //Set UI to login page
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
-            NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         public async Task UserManagement()
         {
             await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), new CancellationToken());
         }
+
+        public async Task UserProfile()
+        {
+            await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), new CancellationToken());
+        }
+
+        public async Task Workspaces()
+        {
+            await ActivateItemAsync(IoC.Get<WorkspacesViewModel>(), new CancellationToken());
+        }
+
         /*
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
@@ -91,11 +123,12 @@ namespace KNBNDesktopUI.ViewModels
         {
             throw new NotImplementedException();
         }
-
         */
+
         public async Task HandleAsync(object ob, CancellationToken cancellationToken)
         {
-            string eventName = ob.GetType().ToString().Trim().Replace("Event", "").Replace("KNBNDesktopUI.Models.", "");
+            string eventName = ob.GetType().ToString().Trim().Replace("KNBNDesktopUI.EventModels.", "").Replace("Event", "");
+            string t = ob.ToString();
 
             switch (eventName)
             {
@@ -106,7 +139,25 @@ namespace KNBNDesktopUI.ViewModels
                     break;
 
                 case "LogOn":
-                    await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), cancellationToken);
+                    await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
+                    break;
+               
+                case "Password":
+                    await ActivateItemAsync(IoC.Get<PasswordViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
+                    break;
+
+                case "Email":
+                    await ActivateItemAsync(IoC.Get<EmailViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
+                    break;
+
+                case "UserName":
+                    await ActivateItemAsync(IoC.Get<UserNameViewModel>(), cancellationToken);
                     NotifyOfPropertyChange(() => IsLoggedIn);
                     NotifyOfPropertyChange(() => IsLoggedOut);
                     break;

@@ -14,5 +14,12 @@ namespace KNBNDesktopUI.Library.Api
         Task AddUserToRole(string userId, string roleName);
         Task RemoveUserFromRole(string userId, string roleName);
         Task CreateUser(CreateUserModel model);
+        
+        Task<UserModel> GetUser();
+        
+        // Update
+        Task UpdateUser(UpdateUserModel model);
+        Task UpdateEmail(UpdateEmailModel model);
+        Task UpdatePassword(UpdatePasswordModel model);
     }
 }

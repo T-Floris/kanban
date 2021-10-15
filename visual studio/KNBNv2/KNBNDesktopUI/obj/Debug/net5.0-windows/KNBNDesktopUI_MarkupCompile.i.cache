@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml
-51816907355
+101908641372
 
-19866554749
+321619276842
 2311625397353
-Views\LoginView.xaml;Views\RegisterView.xaml;Views\ShellView.xaml;Views\StatusInfoView.xaml;Views\UserDisplayView.xaml;
+Views\EmailView.xaml;Views\LoginView.xaml;Views\PasswordView.xaml;Views\RegisterView.xaml;Views\ShellView.xaml;Views\StatusInfoView.xaml;Views\UserDisplayView.xaml;Views\UserNameView.xaml;Views\UserProfileView.xaml;Views\WorkspacesView.xaml;
 
 True
 

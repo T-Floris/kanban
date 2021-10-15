@@ -99,3 +99,13 @@ C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Deb
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\App.baml
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\RegisterView.g.cs
 C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\RegisterView.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\UserProfileView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\UserProfileView.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\WorkspacesView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\WorkspacesView.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\EmailView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\PasswordView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\UserNameView.g.cs
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\EmailView.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\PasswordView.baml
+C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\UserNameView.baml

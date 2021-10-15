@@ -12,6 +12,7 @@ namespace KNBNDesktopUI.Library.Api
     {
         Task<AuthenticatedUser> Authenticate(string username, string password);
 
+
         Task GetLoginUserInfo(string token);
 
         void LogOffUser();

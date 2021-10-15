@@ -1,8 +1,13 @@
-﻿C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml;;
+FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\EmailView.xaml;;
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\LoginView.xaml;;
+FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\PasswordView.xaml;;
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\RegisterView.xaml;;
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\ShellView.xaml;;
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\StatusInfoView.xaml;;
 FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserDisplayView.xaml;;
+FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserNameView.xaml;;
+FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserProfileView.xaml;;
+FC:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\WorkspacesView.xaml;;
 

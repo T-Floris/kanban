@@ -8,14 +8,20 @@ using System.Threading.Tasks;
 
 namespace KNBNDesktopUI.Library.Models
 {
-    public class CreateUserModel : ICreateUserModel
+    public class UpdateUserModel
     {
+        [Required]
+        [DisplayName("Id")]
+        public string Id 
+        { 
+            get; set; 
+        }
 
         [Required]
         [DisplayName("First Name")]
         public string FirstName
-        { 
-            get; set; 
+        {
+            get; set;
         }
 
         [Required]
@@ -36,7 +42,7 @@ namespace KNBNDesktopUI.Library.Models
         [Required]
         [DisplayName("User name")]
         public string UserName
-        { 
+        {
             get; set;
         }
 
@@ -55,7 +61,5 @@ namespace KNBNDesktopUI.Library.Models
         {
             get; set;
         }
-
-
     }
 }

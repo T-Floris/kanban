@@ -92,5 +92,78 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+        public async Task<UserModel> GetUser()
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/User"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<UserModel>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+
+        }
+
+        public async Task UpdateUser(UpdateUserModel model)
+        {
+            var date = new
+            {
+                model.Id,
+                model.FirstName,
+                model.LastName,
+                model.EmailAddress,
+                model.Password,
+                model.UserName
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync("api/User/Update", date))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+
+        public async Task UpdateEmail(UpdateEmailModel model)
+        {
+            var data = new
+            {
+                model.NewEmail,
+                model.Token
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync("api/User/UpdateEmail", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task UpdatePassword(UpdatePasswordModel model)
+        {
+            var data = new
+            {
+                model.currentPassword,
+                model.NewPassword,
+                model.PasswordRepeat
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync("api/User/UpdatePassword", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }
