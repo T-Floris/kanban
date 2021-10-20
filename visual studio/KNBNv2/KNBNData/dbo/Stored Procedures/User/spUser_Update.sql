@@ -9,6 +9,6 @@ begin
 	set nocount on;
 
 	UPDATE [User]
-	SET Id = @Id, FirstName = @FirstName, LastName = @LastName, EmailAddress = @EmailAddress, UserName = @UserName
+	SET Id = Id, FirstName = @FirstName, LastName = @LastName, EmailAddress = @EmailAddress, UserName = @UserName, CreatedDate = CreatedDate
 	WHERE Id = @Id;
 end

@@ -61,10 +61,9 @@
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Views" />
+    <Folder Include="dbo\Stored Procedures\User" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Stored Procedures\spUser_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\spUser_Insert.sql" />
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Table.sql" />
     <Build Include="dbo\Tables\PermissionUser.sql" />
@@ -74,9 +73,15 @@
     <Build Include="dbo\Tables\BoardUser.sql" />
     <Build Include="dbo\Tables\BoardGroup.sql" />
     <Build Include="dbo\Tables\Board.sql" />
-    <Build Include="dbo\Stored Procedures\spUser_Update.sql" />
+    <Build Include="dbo\Stored Procedures\User\spUser_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\User\spUser_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\User\spUser_Lookup.sql" />
+    <Build Include="dbo\Stored Procedures\User\spUserEmail_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\KNBNData.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />
   </ItemGroup>
 </Project>

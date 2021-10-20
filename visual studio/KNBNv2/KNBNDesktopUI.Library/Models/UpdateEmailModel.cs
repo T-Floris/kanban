@@ -10,9 +10,11 @@ namespace KNBNDesktopUI.Library.Models
     {
         public string NewEmail { get; set; }
         public string Token { get; set; }
+        public string CurrentEmail { get; set; }
 
         public void ResetEmailModel()
         {
+            CurrentEmail = "";
             NewEmail = "";
             Token = "";
         }

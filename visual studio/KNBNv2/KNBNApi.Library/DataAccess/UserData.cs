@@ -28,5 +28,21 @@ namespace KNBNApi.Library.DataAccess
         {
             _sql.SaveData("dbo.spUser_Insert", new { user.Id, user.FirstName, user.LastName, user.EmailAddress, user.UserName }, "KNBNData");
         }
+
+        public void DeleteUser(string Id)
+        {
+            _sql.LoadData<UserModel, dynamic>("dbo.spUser_Delete", new { Id }, "KNBNData");
+
+        }
+
+        public void UpdateUser(UserModel user)
+        {
+            _sql.UpdateData("dbo.spUser_Update", new { user.Id, user.FirstName, user.LastName, user.EmailAddress, user.UserName }, "KNBNData");
+        }
+
+        public void UpdateUserEmail(string Id, string newEmail)
+        {
+            _sql.UpdateUserEmail("dbo.spUserEmail_Update", new { Id, newEmail }, "KNBNData");
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace KNBNDesktopUI.Library.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
+        public string UserName { get; set; }
+
         public DateTime CreateDate { get; set; }
 
         public void ResetUserModel()

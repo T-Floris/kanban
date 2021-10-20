@@ -118,5 +118,29 @@ namespace KNBNApi.Library.Internal.DataAccess
             _transaction = null;
             _connection = null;
         }
+
+        public void UpdateData<T>(string storedProcedure, T parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Execute(storedProcedure, parameters,
+                    commandType: CommandType.StoredProcedure);
+
+            }
+        }
+
+        public void UpdateUserEmail<T>(string storedProcedure, T parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+
+            using (IDbConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Execute(storedProcedure, parameters,
+                    commandType: CommandType.StoredProcedure);
+
+            }
+        }
     }
 }

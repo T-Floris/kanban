@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj": {}
+    "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj": {
+    "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj",
+        "projectUniqueName": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj",
         "projectName": "KNBNApi.Library",
-        "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\obj\\",
+        "projectPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj",
+        "packagesPath": "C:\\Users\\tifl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tifl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +47,7 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[1.60.6, )"
+              "version": "[2.0.90, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
@@ -62,7 +67,7 @@
             },
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.2, )"
+              "version": "[4.8.3, )"
             }
           },
           "imports": [
@@ -80,21 +85,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj": {
+    "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj",
+        "projectUniqueName": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj",
         "projectName": "KNBNApi",
-        "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj",
-        "packagesPath": "C:\\Users\\Bruger\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi\\obj\\",
+        "projectPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi\\KNBNApi.csproj",
+        "packagesPath": "C:\\Users\\tifl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bruger\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tifl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,8 +118,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj": {
-                "projectPath": "C:\\Users\\Bruger\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj"
+              "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj": {
+                "projectPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNApi.Library\\KNBNApi.Library.csproj"
               }
             }
           }
@@ -126,29 +136,29 @@
           "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
@@ -160,19 +170,19 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.2, )"
+              "version": "[6.2.3, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
-              "version": "[6.2.2, )"
+              "version": "[6.2.3, )"
             },
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
-              "version": "[6.2.2, )"
+              "version": "[6.2.3, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.12.2, )"
+              "version": "[6.13.1, )"
             }
           },
           "imports": [
@@ -193,7 +203,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

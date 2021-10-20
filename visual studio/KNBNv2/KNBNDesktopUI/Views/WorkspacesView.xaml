@@ -8,10 +8,15 @@
              d:DesignHeight="425" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" x:Name="panel">
+                        
+        </StackPanel>
     </Grid>
 </UserControl>

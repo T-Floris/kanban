@@ -25,13 +25,13 @@ namespace KNBNDesktopUI.ViewModels
         }
 
 
-
+        /*
         public ILoggedInUserModel LoggedInUser
         {
             get { return _loggedInUser; }
             set { _loggedInUser = value; }
         }
-
+        */
 
         private string _NewEmail;
 
@@ -78,13 +78,16 @@ namespace KNBNDesktopUI.ViewModels
 
             UpdateEmailModel email = new()
             {
+                CurrentEmail = _loggedInUser.EmailAddress,
                 NewEmail = NewEmail,
-                Token = LoggedInUser.Token
+                Token = _loggedInUser.Token
             };
+
 
             try
             {
                 await _userEndpoint.UpdateEmail(email);
+                _loggedInUser.EmailAddress = NewEmail;
 
             }
             catch (Exception ex)

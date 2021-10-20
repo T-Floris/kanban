@@ -86,6 +86,8 @@ namespace KNBNDesktopUI.ViewModels
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
 
             await ChangeActiveItemAsync(IoC.Get<LoginViewModel>(), true, new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         public async Task LogOut()
@@ -94,21 +96,29 @@ namespace KNBNDesktopUI.ViewModels
             _apiHelper.LogOffUser();
             //Set UI to login page
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         public async Task UserManagement()
         {
             await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         public async Task UserProfile()
         {
             await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         public async Task Workspaces()
         {
             await ActivateItemAsync(IoC.Get<WorkspacesViewModel>(), new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
         /*

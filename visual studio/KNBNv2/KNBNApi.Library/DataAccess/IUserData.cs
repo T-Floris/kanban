@@ -10,7 +10,9 @@ namespace KNBNApi.Library.DataAccess
     public interface IUserData
     {
         void CreateUser(UserModel user);
+        void DeleteUser(string Id);
+        void UpdateUser(UserModel user);
+        void UpdateUserEmail(string Id, string newEmail);
         List<UserModel> GetUserById(string Id);
-        
     }
 }

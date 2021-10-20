@@ -190,14 +190,18 @@ namespace KNBNApi.Controllers
                 string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 IdentityUser result = await _userManager.FindByIdAsync(loggedInUserId);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
             }
 
-            return BadRequest();
         }
 
         public record UpdateEmailModel(
-            string newEmail,
-            string token
+            string currentEmail,
+            string NewEmail
         );
 
         [Authorize]
@@ -209,12 +213,31 @@ namespace KNBNApi.Controllers
             {
                 string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                IdentityUser result = await _userManager.FindByIdAsync(loggedInUserId);               
+                // git the user
+                IdentityUser result = await _userManager.FindByEmailAsync(model.currentEmail);
 
-                await _userManager.ChangeEmailAsync(result, model.newEmail, model.token);
+                // generate token on email
+                var token = await _userManager.GenerateChangeEmailTokenAsync(result, model.NewEmail);
+
+                // update email 
+                await _userManager.ChangeEmailAsync(result, model.NewEmail, token);
+                await _userManager.SetUserNameAsync(result, model.NewEmail);
+
+                // Update
+                var t = _userData.GetUserById(loggedInUserId);
+                _userData.UpdateUserEmail(loggedInUserId, model.NewEmail);
+
+
+
+
+               // await _userData.UpdateUser(t);
+                return Ok();
+            }
+            else
+            { 
+                return BadRequest();
             }
 
-            return BadRequest();
         }
 
         public record UpdatePasswordModel(        
@@ -236,6 +259,7 @@ namespace KNBNApi.Controllers
                 if (await _userManager.CheckPasswordAsync(result, model.currentPassword))
                 {
                     await _userManager.ChangePasswordAsync(result, model.currentPassword, model.newPassword);
+                    return Ok();
                 }
                 else
                 {
@@ -247,5 +271,24 @@ namespace KNBNApi.Controllers
             return BadRequest();
         }
 
+        [Authorize]
+        [HttpPut]
+        [Route("DeleteUser")]
+        public async Task DeleteUser(DeleteUserModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+
+                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                _logger.LogInformation("Admin {Admin} Deletet user {User}",
+                    loggedInUserId, user.Id);
+
+                await _userManager.DeleteAsync(user);
+                _userData.DeleteUser(user.Id);
+            }
+        }
+
     }
 }
+

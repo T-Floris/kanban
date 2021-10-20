@@ -217,5 +217,10 @@ namespace KNBNDesktopUI.ViewModels
             AvailableRoles.Add(SelectedUserRole);
             UserRoles.Remove(SelectedUserRole);
         }
+
+        public async Task DeleteUser()
+        {
+            await _userEndpoint.DeleteUser(SelectedUser.Id);
+        }
     }
 }

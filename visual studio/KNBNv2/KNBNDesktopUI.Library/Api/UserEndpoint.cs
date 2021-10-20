@@ -135,6 +135,7 @@ namespace KNBNDesktopUI.Library.Api
         {
             var data = new
             {
+                model.CurrentEmail,
                 model.NewEmail,
                 model.Token
             };
@@ -164,6 +165,27 @@ namespace KNBNDesktopUI.Library.Api
                     throw new Exception(response.ReasonPhrase);
                 }
             }
+        }
+
+        public async Task DeleteUser(string UserId)
+        {
+            var data = new
+            {
+                UserId
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PutAsJsonAsync("api/User/DeleteUser", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public Task UpdateEmail(UpdateEmailModel model, UpdateUserModel userModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -43,19 +43,19 @@
         </ListBox>
 
         <!--Column 1-->
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
-                    Margin="20 0 0 0">
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Margin="0 0 0 0" >
             <TextBlock x:Name="SelectedUserName" Margin="0 0 0 10"/>
-            <TextBlock Text="Current Roles" />
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                <ListBox x:Name="UserRoles">
-
-                </ListBox>
+            <TextBlock Text="Current Roles" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 10"/>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ListBox x:Name="UserRoles"/>
                 <Button x:Name="RemoveSelectedRole" Content="Remove" Margin="5 0 0 0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 0 10">
                 <ComboBox Name="AvailableRoles"/>
                 <Button x:Name="AddSelectedRole" Content="Add Role" Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="DeleteUser" Content="Delete user" Margin="0 0 0 0"/>
             </StackPanel>
         </StackPanel>
     </Grid>

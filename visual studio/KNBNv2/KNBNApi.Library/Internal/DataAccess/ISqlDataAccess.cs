@@ -15,7 +15,11 @@ namespace KNBNApi.Library.Internal.DataAccess
         List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters);
         void RollbackTransaction();
         void SaveData<T>(string storedProcedure, T parameters, string connectionStringName);
+        void UpdateData<T>(string storedProcedure, T parameters, string connectionStringName);
         void SaveDataInTransaction<T>(string storedProcedure, T parameters);
         void StartTransaction(string connectionStringName);
+
+        void UpdateUserEmail<T>(string storedProcedure, T parameters, string connectionStringName);
+
     }
 }
