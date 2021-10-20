@@ -8,18 +8,27 @@ namespace KNBNApi.Library.Internal.DataAccess
 {
     public interface ISqlDataAccess
     {
-        void CommitTransaction();
-        void Dispose();
+        // get connention string to use 
         string GetConnectionString(string connectionString);
+        // need to be hear
+        void Dispose();
+
+
         List<T> LoadData<T, U>(string storedProcedure, U parameters, string connectionStringName);
-        List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters);
-        void RollbackTransaction();
         void SaveData<T>(string storedProcedure, T parameters, string connectionStringName);
         void UpdateData<T>(string storedProcedure, T parameters, string connectionStringName);
-        void SaveDataInTransaction<T>(string storedProcedure, T parameters);
-        void StartTransaction(string connectionStringName);
+
 
         void UpdateUserEmail<T>(string storedProcedure, T parameters, string connectionStringName);
+
+        //
+
+
+        //void CommitTransaction();
+        //List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters);
+        //void RollbackTransaction();
+        //void SaveDataInTransaction<T>(string storedProcedure, T parameters);
+        //void StartTransaction(string connectionStringName);
 
     }
 }

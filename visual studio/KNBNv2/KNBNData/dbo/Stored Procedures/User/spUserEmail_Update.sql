@@ -6,6 +6,6 @@ begin
 	set nocount on;
 
 	UPDATE [User]
-	SET [Id] = [Id], [FirstName] = [FirstName], [LastName] = [LastName], [EmailAddress] = @NewEmail, [UserName] = [UserName], [CreatedDate] = [CreatedDate]
+	SET [EmailAddress] = @NewEmail
 	WHERE [Id] = @Id;
 end

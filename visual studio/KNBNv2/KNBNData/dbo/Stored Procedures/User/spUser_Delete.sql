@@ -1,10 +1,26 @@
 ﻿CREATE PROCEDURE [dbo].[spUser_Delete]
 	@Id nvarchar(128)
 AS
-begin
-	set nocount on;
+BEGIN
+	SET NOCOUNT ON
+
+	DELETE
+	FROM [dbo].[PermissionUser]
+	WHERE [UserId] = @Id;
+
+	DELETE
+	FROM [dbo].[GroupUser]
+	WHERE [UserId] = @Id;
+
+	DELETE
+	FROM [dbo].[BoardUser]
+	WHERE [UserId] = @Id;
+
+	UPDATE [dbo].[Board]
+	SET [UserId] = NULL
+	WHERE [UserId] = @Id
 
 	DELETE
 	FROM [dbo].[User]
-	where Id = @Id;
-end
+	WHERE [Id] = @Id;
+END

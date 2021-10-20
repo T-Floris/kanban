@@ -28,8 +28,7 @@ namespace KNBNApi.Controllers
         private readonly ILogger<UserController> _logger;
 
 
-        public UserController(ApplicationDbContext context, UserManager<IdentityUser> userManager
-            , IUserData userData, ILogger<UserController> logger)
+        public UserController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<UserController> logger)
         {
             _context = context;
             _userManager = userManager;
@@ -37,6 +36,7 @@ namespace KNBNApi.Controllers
             _logger = logger;
         }
 
+        #region find the logt in user by Id
         [HttpGet]
         public UserModel GetById()
         {
@@ -47,6 +47,9 @@ namespace KNBNApi.Controllers
             
 
         }
+        #endregion
+
+        #region (Admin role) controle the usere role
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
@@ -119,6 +122,10 @@ namespace KNBNApi.Controllers
             await _userManager.RemoveFromRoleAsync(user, pairing.RoleName);
         }
 
+        #endregion
+
+        #region create user, and set role to "user"
+
         public record UserRegistrationModel(
             string FirstName,
             string LastName,
@@ -174,7 +181,10 @@ namespace KNBNApi.Controllers
             return BadRequest();
         }
 
+        #endregion
 
+        #region change user info
+        //TODO UpdateUserInfo
         public record UpdateUserInfoModel(
             string currentPassword,
             string newPassword
@@ -219,25 +229,20 @@ namespace KNBNApi.Controllers
                 // generate token on email
                 var token = await _userManager.GenerateChangeEmailTokenAsync(result, model.NewEmail);
 
-                // update email 
+                // update email (This is used to login)
                 await _userManager.ChangeEmailAsync(result, model.NewEmail, token);
                 await _userManager.SetUserNameAsync(result, model.NewEmail);
 
-                // Update
+                // Update user info
                 var t = _userData.GetUserById(loggedInUserId);
                 _userData.UpdateUserEmail(loggedInUserId, model.NewEmail);
 
-
-
-
-               // await _userData.UpdateUser(t);
                 return Ok();
             }
             else
-            { 
+            {
                 return BadRequest();
             }
-
         }
 
         public record UpdatePasswordModel(        
@@ -271,8 +276,11 @@ namespace KNBNApi.Controllers
             return BadRequest();
         }
 
+        #endregion
+
+        #region Delet user (delete the user you're logt in as) 
         [Authorize]
-        [HttpPut]
+        [HttpDelete]
         [Route("DeleteUser")]
         public async Task DeleteUser(DeleteUserModel model)
         {
@@ -281,13 +289,15 @@ namespace KNBNApi.Controllers
                 var user = await _userManager.FindByIdAsync(model.UserId);
 
                 string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                _logger.LogInformation("Admin {Admin} Deletet user {User}",
+               /* _logger.LogInformation("Admin {Admin} Deletet user {User}",
                     loggedInUserId, user.Id);
-
+               */
                 await _userManager.DeleteAsync(user);
                 _userData.DeleteUser(user.Id);
             }
         }
+
+        #endregion
 
     }
 }

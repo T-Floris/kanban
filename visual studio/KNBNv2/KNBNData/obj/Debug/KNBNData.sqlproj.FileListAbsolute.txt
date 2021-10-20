@@ -7,6 +7,5 @@ C:\Users\Bruger\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KN
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KNBNData.dacpac
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KNBNData.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KNBNData.pdb
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.sqlproj.AssemblyReference.cache
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.pdb

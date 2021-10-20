@@ -14,5 +14,6 @@ namespace KNBNApi.Library.DataAccess
         void UpdateUser(UserModel user);
         void UpdateUserEmail(string Id, string newEmail);
         List<UserModel> GetUserById(string Id);
+
     }
 }

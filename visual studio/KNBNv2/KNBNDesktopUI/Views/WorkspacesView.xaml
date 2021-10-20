@@ -15,8 +15,9 @@
 
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5" x:Name="panel">
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
                         
         </StackPanel>
+        
     </Grid>
 </UserControl>
