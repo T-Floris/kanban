@@ -46,7 +46,7 @@ namespace KNBNApi
             // Personal Services
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             services.AddTransient<IUserData, UserData>();
-
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
@@ -65,7 +65,7 @@ namespace KNBNApi
 
                 };
             });
-
+            
             services.AddSwaggerGen(setup =>
             {
                 setup.SwaggerDoc(
@@ -76,6 +76,7 @@ namespace KNBNApi
                         Version = "v1"
                     });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

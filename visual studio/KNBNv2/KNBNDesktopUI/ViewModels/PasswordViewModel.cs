@@ -87,14 +87,32 @@ namespace KNBNDesktopUI.ViewModels
 
             };
 
+
+
             try
             {
-                await _userEndpoint.UpdatePassword(password);              
+                await _userEndpoint.UpdatePassword(password);
+
+                _OldPassword = "";
+                _NewPassword = "";
+                _PasswordRepeat = "";
+
+                NotifyOfPropertyChange(() => currentPassword);
+                NotifyOfPropertyChange(() => NewPassword);
+                NotifyOfPropertyChange(() => PasswordRepeat);
 
             }
             catch (Exception ex)
             {
                 ErrorMessage = ex.Message;
+
+                currentPassword = "";
+                NewPassword = "";
+                PasswordRepeat = "";
+
+                NotifyOfPropertyChange(() => currentPassword);
+                NotifyOfPropertyChange(() => NewPassword);
+                NotifyOfPropertyChange(() => PasswordRepeat);
             }
         }
 

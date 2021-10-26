@@ -21,5 +21,18 @@ namespace KNBNApi.Library.DataAccess
         {
             _sql.SaveData("dbo.spGroup_Insert", new { group.UserId, group.Name, group.Color }, "KNBNData");
         }
+        /*
+        public string GetGroupTitle(string Name)
+        {
+            throw new NotImplementedException();
+        }
+        */
+
+        public List<GroupUserModel> GetGroupTitle(string Name)
+        {
+            var output = _sql.LoadData<GroupUserModel, dynamic>("dbo.spGroupUser_Lookup", new { Name }, "KNBNData");
+
+            return output;
+        }
     }
 }

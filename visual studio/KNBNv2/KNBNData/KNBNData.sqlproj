@@ -9,8 +9,7 @@
     <ProjectGuid>{132a9756-ae98-43b0-935e-c0eb12c2ddd9}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>KNBNData</RootNamespace>
     <AssemblyName>KNBNData</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -59,24 +57,18 @@
     <Folder Include="dbo" />
     <Folder Include="PublishLocations" />
     <Folder Include="dbo\Stored Procedures" />
-    <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures\User" />
     <Folder Include="dbo\Stored Procedures\Group" />
     <Folder Include="dbo\Stored Procedures\Board" />
     <Folder Include="dbo\Stored Procedures\Permission" />
     <Folder Include="dbo\Stored Procedures\Table" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Stored Procedures\BoardGroup" />
+    <Folder Include="dbo\Stored Procedures\GroupUser" />
+    <Folder Include="dbo\Stored Procedures\PermissionUserBoard" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Table.sql" />
-    <Build Include="dbo\Tables\PermissionUser.sql" />
-    <Build Include="dbo\Tables\Permission.sql" />
-    <Build Include="dbo\Tables\GroupUser.sql" />
-    <Build Include="dbo\Tables\Group.sql" />
-    <Build Include="dbo\Tables\BoardUser.sql" />
-    <Build Include="dbo\Tables\BoardGroup.sql" />
-    <Build Include="dbo\Tables\Board.sql" />
     <Build Include="dbo\Stored Procedures\User\spUser_Delete.sql" />
     <Build Include="dbo\Stored Procedures\User\spUser_Insert.sql" />
     <Build Include="dbo\Stored Procedures\User\spUser_Lookup.sql" />
@@ -97,6 +89,23 @@
     <Build Include="dbo\Stored Procedures\Group\spGroup_Insert.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Lookup.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Update.sql" />
+    <Build Include="dbo\Tables\Board.sql" />
+    <Build Include="dbo\Tables\BoardGroup.sql" />
+    <Build Include="dbo\Tables\BoardUser.sql" />
+    <Build Include="dbo\Tables\Group.sql" />
+    <Build Include="dbo\Tables\GroupUser.sql" />
+    <Build Include="dbo\Tables\Permission.sql" />
+    <Build Include="dbo\Tables\PermissionUserBoard.sql" />
+    <Build Include="dbo\Tables\Table.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Stored Procedures\BoardGroup\spBoardGroup_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\BoardGroup\spBoardGroup_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\GroupUser\spGroupUser_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\GroupUser\spGroupUser_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\PermissionUserBoard\spPermissionUserBoard_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\PermissionUserBoard\spPermissionUserBoard_Delete.sql" />
+    <Build Include="dbo\Views\viewGroupMembers.sql" />
+    <Build Include="dbo\Stored Procedures\GroupUser\spGroupUser_Lookup.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />

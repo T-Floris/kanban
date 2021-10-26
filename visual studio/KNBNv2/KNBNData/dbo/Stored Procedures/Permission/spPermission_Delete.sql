@@ -5,7 +5,7 @@ BEGIN
 	SET NOCOUNT ON;
 	
 	DELETE
-	FROM [dbo].[PermissionUser]
+	FROM [dbo].[PermissionUserBoard]
 	WHERE [PermissionId] = @Id
 	
 	DELETE

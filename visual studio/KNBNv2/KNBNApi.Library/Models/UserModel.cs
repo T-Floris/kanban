@@ -24,8 +24,8 @@ namespace KNBNApi.Library.Models
         {
             get; set;
         }
-        public string UserName 
-        { 
+        public string UserName
+        {
             get; set;
         }
         public DateTime CreatedDate

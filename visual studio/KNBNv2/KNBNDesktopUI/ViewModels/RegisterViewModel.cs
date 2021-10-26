@@ -26,8 +26,6 @@ namespace KNBNDesktopUI.ViewModels
         private string _errorMessage;
 
 
-
-
         public RegisterViewModel(IAPIHelper apiHelper, IEventAggregator events, IUserEndpoint userEndpoint)
         {
             _apiHelper = apiHelper;

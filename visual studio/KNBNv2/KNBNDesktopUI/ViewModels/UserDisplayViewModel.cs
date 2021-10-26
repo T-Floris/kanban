@@ -49,6 +49,7 @@ namespace KNBNDesktopUI.ViewModels
                 _ = LoadRoles();
 
                 NotifyOfPropertyChange(() => SelectedUser);
+                NotifyOfPropertyChange(() => UserRoles);
             }
         }
 
@@ -87,6 +88,7 @@ namespace KNBNDesktopUI.ViewModels
             {
                 _selectedUserName = value;
                 NotifyOfPropertyChange(() => SelectedUserName);
+
             }
         }
 
@@ -145,7 +147,6 @@ namespace KNBNDesktopUI.ViewModels
                 {
                     _status.UpdateMessage("Fatal Exception", ex.Message);
                     await _window.ShowDialogAsync(_status, null, settings);
-
                 }
             }
         }

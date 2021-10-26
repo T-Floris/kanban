@@ -48,6 +48,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
         public async Task AddUserToRole(string userId, string roleName)
         {
             var data = new { userId, roleName };
@@ -60,6 +61,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
         public async Task RemoveUserFromRole(string userId, string roleName)
         {
             var data = new { userId, roleName };
@@ -92,6 +94,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
         public async Task<UserModel> GetUser()
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/User"))
@@ -129,7 +132,6 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
-
 
         public async Task UpdateEmail(UpdateEmailModel model)
         {

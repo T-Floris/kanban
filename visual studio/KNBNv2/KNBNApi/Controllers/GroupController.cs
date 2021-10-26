@@ -24,19 +24,24 @@ namespace KNBNApi.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserData _userData;
-        private readonly IGroupData _groupData;
+
         private readonly ILogger<UserController> _logger;
 
-        public GroupController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<UserController> logger, IGroupData groupData)
+        private readonly IUserData _userData;
+        private readonly IGroupData _groupData;
+
+        public GroupController(ApplicationDbContext context, UserManager<IdentityUser> userManager, ILogger<UserController> logger, IUserData userData, IGroupData groupData)
         {
             _context = context;
             _userManager = userManager;
-            _userData = userData;
+
             _logger = logger;
+
+            _userData = userData;
             _groupData = groupData;
         }
 
+        #region (Admin and above role) Create Group whit the logt in user as owner
         public record CreateGroupModel
         (
             string UserId,
@@ -44,29 +49,38 @@ namespace KNBNApi.Controllers
             string Color
         );
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin,Super Admin")]
         [HttpPost]
         [Route("CreateGroup")]
-        public async Task<IActionResult> CreateGroup(CreateGroupModel model)
+        public void CreateGroup(CreateGroupModel model)
         {
             if (ModelState.IsValid)
             {
-                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                var u = _userData.GetUserById(loggedInUserId);
+                User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                GroupModel g = new()
+                var existingGroup = _groupData.GetGroupTitle(model.Name);
+
+                if (existingGroup is null)
                 {
-                    UserId = model.UserId,
-                    Name = model.Name,
-                    Color = model.Color
-                };
+                    string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    var u = _userData.GetUserById(loggedInUserId);
 
-                _groupData.CreateGroup(g);
+                    GroupModel group = new()
+                    {
+                        UserId = model.UserId,
+                        Name = model.Name,
+                        Color = model.Color
+                    };
 
-                return Ok();
+                    _groupData.CreateGroup(group);
+                }
             }
-
-            return BadRequest();
         }
+        #endregion
+
+        #region (Admin and above role)
+
+
+        #endregion
     }
 }
