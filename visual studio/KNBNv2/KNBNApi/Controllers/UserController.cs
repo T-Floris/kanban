@@ -49,7 +49,7 @@ namespace KNBNApi.Controllers
         }
         #endregion
 
-        #region (Admin role) controle the usere role
+        #region (Admin) controle the usere role
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
@@ -124,7 +124,7 @@ namespace KNBNApi.Controllers
 
         #endregion
 
-        #region create user, and set role to "user"
+        #region (Anonymous) create user, and set role to "user"
 
         public record UserRegistrationModel(
             string FirstName,
@@ -183,7 +183,7 @@ namespace KNBNApi.Controllers
 
         #endregion
 
-        #region change user info
+        #region (Authorize) change user info
         //TODO UpdateUserInfo
         public record UpdateUserInfoModel(
             string currentPassword,
@@ -278,17 +278,17 @@ namespace KNBNApi.Controllers
 
         #endregion
 
-        #region Delet user (delete the user you're logt in as) 
+        #region (Authorize) Delet user (delete the user you're logt in as) 
         [Authorize]
         [HttpDelete]
         [Route("DeleteUser")]
-        public async Task DeleteUser(DeleteUserModel model)
+        public async Task DeleteUser()
         {
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByIdAsync(model.UserId);
+                var user = await _userManager.FindByIdAsync(ClaimTypes.NameIdentifier);
 
-                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                //string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                /* _logger.LogInformation("Admin {Admin} Deletet user {User}",
                     loggedInUserId, user.Id);
                */
@@ -296,6 +296,14 @@ namespace KNBNApi.Controllers
                 _userData.DeleteUser(user.Id);
             }
         }
+
+        #endregion
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/DeleteUser")]
+        #region (Admin) Delete selected user
+
 
         #endregion
 
