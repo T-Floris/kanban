@@ -36,7 +36,8 @@ namespace KNBNApi.Controllers
             _logger = logger;
             _groupData = groupData;
         }
-
+        
+        #region (Admin+) Create Group whit the logt in user as owner
         public record CreateGroupModel
         (
             string UserId,
@@ -44,29 +45,40 @@ namespace KNBNApi.Controllers
             string Color
         );
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        [Route("CreateGroup")]
-        public async Task<IActionResult> CreateGroup(CreateGroupModel model)
+        [Route("Admin/CreateGroup")]
+        public IActionResult CreateGroup(CreateGroupModel model)
         {
             if (ModelState.IsValid)
             {
-                string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                var u = _userData.GetUserById(loggedInUserId);
+                User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-                GroupModel g = new()
+                var existingGroup = _groupData.GetGroupTitle(model.Name);
+
+                if (existingGroup is null)
                 {
-                    UserId = model.UserId,
-                    Name = model.Name,
-                    Color = model.Color
-                };
+                    string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    var u = _userData.GetUserById(loggedInUserId);
 
-                _groupData.CreateGroup(g);
+                    GroupModel group = new()
+                    {
+                        UserId = model.UserId,
+                        Name = model.Name,
+                        Color = model.Color
+                    };
 
-                return Ok();
+                    _groupData.CreateGroup(group);
+                    return Ok();
+                }
             }
 
             return BadRequest();
         }
+        #endregion
+
+        #region (Admin+) Contrile group members
+        
+        #endregion
     }
 }
