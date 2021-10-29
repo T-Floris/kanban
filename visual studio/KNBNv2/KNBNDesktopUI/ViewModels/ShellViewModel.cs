@@ -61,7 +61,7 @@ namespace KNBNDesktopUI.ViewModels
         {
             get
             {
-                bool output = false;
+                bool output = true;
 
                 if (string.IsNullOrWhiteSpace(_user.Token) == false)
                 {
@@ -129,7 +129,7 @@ namespace KNBNDesktopUI.ViewModels
         /* Workspaces */
         public async Task Workspaces()
         {
-            await ActivateItemAsync(IoC.Get<GroupViewModel>(), new CancellationToken());
+            await ActivateItemAsync(IoC.Get<WorkspacesViewModel>(), new CancellationToken());
             NotifyOfPropertyChange(() => IsLoggedIn);
             NotifyOfPropertyChange(() => IsLoggedOut);
         }
@@ -139,9 +139,12 @@ namespace KNBNDesktopUI.ViewModels
         /* Group */
         public async Task GroupManagement()
         {
+
             await ActivateItemAsync(IoC.Get<GroupViewModel>(), new CancellationToken());
             NotifyOfPropertyChange(() => IsLoggedIn);
             NotifyOfPropertyChange(() => IsLoggedOut);
+
+            
         }
 
         public async Task CreateGroup()
