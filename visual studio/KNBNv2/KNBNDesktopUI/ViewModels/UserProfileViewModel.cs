@@ -80,6 +80,21 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
+        public string Image
+        {
+            get
+            {
+                string imagepath = "";
+
+                if (string.IsNullOrWhiteSpace(imagepath) == false)
+                {
+                    imagepath = @"../Images/test.png";
+                }
+
+                return imagepath;
+            }
+        }
+
         // change password
 
 

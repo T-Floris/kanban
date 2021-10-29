@@ -66,7 +66,8 @@ namespace KNBNDesktopUI
             _container.Instance(ConfigureAutoMapper());
 
             _container.Instance(_container)
-                .PerRequest<IUserEndpoint, UserEndpoint>();
+                .PerRequest<IUserEndpoint, UserEndpoint>()
+                .PerRequest<IGroupEndpoint, GroupEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

@@ -1,6 +1,7 @@
-﻿C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\EmailView.xaml;;
+FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\GroupView.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\LoginView.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\PasswordView.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\RegisterView.xaml;;
@@ -10,4 +11,5 @@ FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserDispl
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserNameView.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\UserProfileView.xaml;;
 FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\WorkspacesView.xaml;;
+FC:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\Views\GroupCreateView.xaml;;
 

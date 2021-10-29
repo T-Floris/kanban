@@ -9,3 +9,4 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KNBNData.dl
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\bin\Debug\KNBNData.pdb
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.pdb
+C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.sqlproj.AssemblyReference.cache

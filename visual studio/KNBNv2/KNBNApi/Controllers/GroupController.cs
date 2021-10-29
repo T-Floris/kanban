@@ -22,21 +22,26 @@ namespace KNBNApi.Controllers
     [Authorize]
     public class GroupController : ControllerBase
     {
+        /*
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IUserData _userData;
+        */
         private readonly IGroupData _groupData;
+        /*
         private readonly ILogger<UserController> _logger;
-
-        public GroupController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<UserController> logger, IGroupData groupData)
+        */
+        public GroupController(/*ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<UserController> logger,*/ IGroupData groupData)
         {
+            /*
             _context = context;
             _userManager = userManager;
             _userData = userData;
             _logger = logger;
+            */
             _groupData = groupData;
         }
-        
+        /*
         #region (Admin+) Create Group whit the logt in user as owner
         public record CreateGroupModel
         (
@@ -60,25 +65,36 @@ namespace KNBNApi.Controllers
                 {
                     string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                     var u = _userData.GetUserById(loggedInUserId);
-
+                    /*
                     GroupModel group = new()
                     {
                         UserId = model.UserId,
                         Name = model.Name,
                         Color = model.Color
                     };
+                    */
 
-                    _groupData.CreateGroup(group);
-                    return Ok();
+                    //_groupData.CreateGroup(group);
+ /*                   return Ok();
                 }
             }
 
             return BadRequest();
         }
         #endregion
+ */
 
         #region (Admin+) Contrile group members
-        
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("Admin/GetAllGroups")]
+        public List<GroupModel> GetAllGroups()
+        {
+            var groups = _groupData.GetGroups();
+            return groups;
+
+        }
+
         #endregion
     }
 }
