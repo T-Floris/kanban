@@ -17,6 +17,23 @@ namespace KNBNDesktopUI.Library.Api
             _apiHelper = apiHelper;
         }
 
+        public async Task CreateGroup(CreateGroupModel model)
+        {
+            var data = new
+            {
+                model.Name,
+                model.Color
+            };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("api/Group/Admin/CreateGroup", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
         public async Task<List<GroupModel>> GetAll()
         {
             using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllGroups");            

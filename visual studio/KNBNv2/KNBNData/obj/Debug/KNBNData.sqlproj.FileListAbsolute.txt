@@ -13,3 +13,4 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\Model.xml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\refactor.xml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\postdeploy.sql
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\predeploy.sql
+C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNData\obj\Debug\KNBNData.sqlproj.AssemblyReference.cache

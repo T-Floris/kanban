@@ -9,10 +9,10 @@ namespace KNBNApi.Library.DataAccess
 {
     public interface IGroupData
     {
-       // void CreateGroup(GroupModel user);
+        void CreateGroup(GroupModel user);
 
         List<GroupModel> GetGroups();
 
-        //List<GroupUserModel> GetGroupTitle(string Name);
+        List<GroupModel> GetGroupTitle(string Name);
     }
 }

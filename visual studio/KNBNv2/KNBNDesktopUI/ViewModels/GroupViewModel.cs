@@ -18,6 +18,10 @@ namespace KNBNDesktopUI.ViewModels
         private readonly IWindowManager _window;
         private readonly IUserEndpoint _userEndpoint;
         private readonly IGroupEndpoint _groupEndpoint;
+
+
+        BindingList<GroupModel> _groups;
+
         public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
         {
             _status = status;
@@ -56,16 +60,22 @@ namespace KNBNDesktopUI.ViewModels
                     default:
                         break;
                 }
-                /*
+                
                 if (ex.Message == "Unauthorized")
                 {
                     _status.UpdateMessage("Unauthorized Acces", "You shall not passed!");
                     await _window.ShowDialogAsync(_status, null, settings);
 
                 }
-                */
             }
         }
+        // Load all groups
+        private async Task LoadGroups()
+        {
+            var groupList = await _groupEndpoint.GetAll();
+            Groups = new BindingList<GroupModel>(groupList);
+        }
+
 
         private string SelectedGroupName;
 
@@ -81,27 +91,22 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
-        BindingList<GroupModel> _group;
-        public BindingList<GroupModel> Group
-        {
-            get
-            {
-                return _group;
-            }
 
+
+        public BindingList<GroupModel> Groups
+        {
+            get 
+            { 
+                return _groups; 
+            }
             set
             {
-                _group = value;
-                NotifyOfPropertyChange(() => Group);
-
+                _groups = value;
+                NotifyOfPropertyChange(() => Groups);
             }
         }
 
+
         /* SQL CALL ON LOAD*/
-        private async Task LoadGroups()
-        {
-            var groupList = await _groupEndpoint.GetAll();
-            Group = new BindingList<GroupModel>(groupList);
-        }
     }
 }

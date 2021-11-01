@@ -17,12 +17,12 @@ namespace KNBNApi.Library.DataAccess
             _sql = sql;
         }
 
-        /*
+        
         public void CreateGroup(GroupModel group)
         {
             _sql.SaveData("dbo.spGroup_Insert", new { group.UserId, group.Name, group.Color }, "KNBNData");
         }
-        */
+        
 
         public List<GroupModel> GetGroups()
         {
@@ -30,13 +30,13 @@ namespace KNBNApi.Library.DataAccess
 
             return output;
         }
-        /*
-        public List<GroupUserModel> GetGroupTitle(string Name)
+        
+        public List<GroupModel> GetGroupTitle(string Name)
         {
-            var output = _sql.LoadData<GroupUserModel, dynamic>("dbo.spGroup_Lookup", new { Name }, "KNBNData");
+            var output = _sql.LoadData<GroupModel, dynamic>("dbo.spGroup_Lookup", new { Name }, "KNBNData");
 
             return output;
         }
-        */
+        
     }
 }

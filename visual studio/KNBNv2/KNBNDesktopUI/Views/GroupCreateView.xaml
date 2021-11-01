@@ -43,8 +43,8 @@
                     <TextBlock Text=": " VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <TextBox x:Name="Color" MinWidth="250"/>
                 </StackPanel>
-                
-                <Button Margin="10" Content="Create"/>
+
+                <Button Margin="10" Content="Create" x:Name="CreateGroup"/>
 
             </StackPanel>
         </Grid>

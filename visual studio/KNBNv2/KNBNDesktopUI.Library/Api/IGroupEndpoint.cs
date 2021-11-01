@@ -10,5 +10,7 @@ namespace KNBNDesktopUI.Library.Api
     public interface IGroupEndpoint
     {
         Task<List<GroupModel>> GetAll();
+
+        Task CreateGroup(CreateGroupModel model);
     }
 }
