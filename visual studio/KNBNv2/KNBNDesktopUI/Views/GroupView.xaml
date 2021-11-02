@@ -46,8 +46,8 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Group}"/>
-                                    <TextBlock Text="{Binding GroupName}"/>
+                                    <TextBlock Text="{Binding UserName}"/>
+                                    <TextBlock Text="{Binding Name}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -69,7 +69,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Group members" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="Group members in "/>
+                        <TextBlock x:Name="SelectedGroupName"/>
+                    </StackPanel>
                     <ListBox x:Name="GroupUsers" Grid.Row="1" Grid.Column="0" Margin="5" SelectedItem="SelectedGroupMember">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -108,11 +111,11 @@
 
                     <TextBlock Text="Users" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
 
-                    <ListBox x:Name="Users" Grid.Row="1" Grid.Column="0" MinHeight="300"  MinWidth="150" SelectedItem="SelectedGroup">
+                    <ListBox x:Name="Users" Grid.Row="1" Grid.Column="0" MinHeight="300"  MinWidth="150" SelectedItem="SelectedUser">
                         <ListBox.ItemTemplate >
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding EmailAddress}"/>
+                                    <TextBlock Text="{Binding Email}"/>
                                     <TextBlock Text="{Binding UserName}"/>
                                 </StackPanel>
                             </DataTemplate>

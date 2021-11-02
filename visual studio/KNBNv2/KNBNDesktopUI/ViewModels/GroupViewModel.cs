@@ -20,7 +20,6 @@ namespace KNBNDesktopUI.ViewModels
         private readonly IGroupEndpoint _groupEndpoint;
 
 
-        BindingList<GroupModel> _groups;
 
         public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
         {
@@ -74,25 +73,27 @@ namespace KNBNDesktopUI.ViewModels
         {
             var groupList = await _groupEndpoint.GetAll();
             Groups = new BindingList<GroupModel>(groupList);
+            var userList = await _userEndpoint.GetAll();
+            Users = new BindingList<UserModel>(userList);
         }
 
-
-        private string SelectedGroupName;
-
-        private GroupModel _selectedGroup;
-        public GroupModel SelectedGroup
+        private async Task LoadUsers()
         {
-            get { return _selectedGroup; }
-            set
+            var users = await _userEndpoint.GetAll();
+
+            //AvailableUsers.Clear();
+
+            foreach (var user in users)
             {
-                _selectedGroup = value;
-                SelectedGroupName = value.Name;
 
             }
         }
 
 
+        #region All Groups in database to select
 
+        //private string SelectedGroupName;
+        BindingList<GroupModel> _groups;
         public BindingList<GroupModel> Groups
         {
             get 
@@ -105,7 +106,82 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => Groups);
             }
         }
+        
+        // change the groupname to the selected group
+        private GroupModel _selectedGroup;
+        public GroupModel SelectedGroup
+        {
+            get { return _selectedGroup; }
+            set
+            {
+                _selectedGroup = value;
+                SelectedGroupName = value.Name;
 
+
+
+                NotifyOfPropertyChange(() => SelectedGroup);
+
+            }
+        }
+
+        #endregion
+
+
+        private BindingList<UserModel> _users;
+
+        public BindingList<UserModel> Users
+        {
+            get { return _users; }
+            set
+            {
+                _users = value;
+                NotifyOfPropertyChange(() => Users);
+            }
+        }
+
+
+        #region All members of the selected group
+
+        // change the text in textbox to the selected user
+
+        private string _selectedGroupName;
+
+        public string SelectedGroupName
+        {
+            get { return _selectedGroupName; }
+            set
+            {
+                _selectedGroupName = value;
+                NotifyOfPropertyChange(() => SelectedGroupName);
+            }
+        }
+
+        #endregion
+        /*
+
+        //TODO Get all users in selected group
+
+
+
+        //TODO Get all users not in selected group
+        private BindingList<string> _availableUsers = new BindingList<string>();
+
+        public BindingList<string> AvailableUsers
+        {
+            get { return _availableUsers; }
+            set
+            {
+                _availableUsers = value;
+                NotifyOfPropertyChange(() => AvailableUsers);
+            }
+
+        }
+
+
+
+
+        #endregion
+        */
 
         /* SQL CALL ON LOAD*/
     }

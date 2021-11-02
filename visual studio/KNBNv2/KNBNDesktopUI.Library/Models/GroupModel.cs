@@ -8,10 +8,15 @@ namespace KNBNDesktopUI.Library.Models
 {
     public class GroupModel
     {
+
+        public string UserName
+        {
+            get; set;
+        }
         
-        public string Name 
+        public string Name
         { 
-            get; set; 
+            get; set;
         }
 
     }

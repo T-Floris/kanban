@@ -182,7 +182,7 @@ namespace KNBNApi.Controllers
         #endregion
 
         #region (Authorize) change user info
-        //TODO UpdateUserInfo
+        //UpdateUserInfo
         public record UpdateUserInfoModel(
             string currentPassword,
             string newPassword

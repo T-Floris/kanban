@@ -83,8 +83,8 @@ namespace KNBNApi.Controllers
         #endregion
  
 
-        #region (Admin+) Contrile group members
-        [AllowAnonymous]
+        #region (Admin+) Get all groups
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Admin/GetAllGroups")]
         public List<GroupModel> GetAllGroups()
@@ -95,5 +95,23 @@ namespace KNBNApi.Controllers
         }
 
         #endregion
+
+
+
+        #region (Admin+) Get all users
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/GetAllUsers")]
+        public Dictionary<string, string> GetAllUsers()
+        {
+            var users = _groupData.GetAllUsers().ToDictionary(x => x.Id, x => x.UserName);
+            return users;
+        }
+
+
+        #endregion
+
+
+
     }
 }

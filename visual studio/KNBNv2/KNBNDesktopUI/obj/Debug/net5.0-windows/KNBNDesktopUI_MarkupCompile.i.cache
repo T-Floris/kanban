@@ -16,5 +16,5 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml
 231-777826273
 Views\EmailView.xaml;Views\GroupCreateView.xaml;Views\GroupView.xaml;Views\LoginView.xaml;Views\PasswordView.xaml;Views\RegisterView.xaml;Views\ShellView.xaml;Views\StatusInfoView.xaml;Views\UserDisplayView.xaml;Views\UserNameView.xaml;Views\UserProfileView.xaml;Views\WorkspacesView.xaml;
 
-True
+False
 

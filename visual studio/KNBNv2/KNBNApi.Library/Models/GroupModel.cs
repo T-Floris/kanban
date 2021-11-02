@@ -13,6 +13,11 @@ namespace KNBNApi.Library.Models
             get; set;
         }
 
+        public string UserName
+        {
+            get; set;
+        }
+
         public string Name
         {
             get; set;

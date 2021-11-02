@@ -22,8 +22,13 @@ namespace KNBNApi.Library.DataAccess
         {
             _sql.SaveData("dbo.spGroup_Insert", new { group.UserId, group.Name, group.Color }, "KNBNData");
         }
-        
 
+        /*
+public Task<Dictionary<string, string>> GetAllUsers()
+{
+   var output = _sql.LoadData
+}
+*/
         public List<GroupModel> GetGroups()
         {
             var output = _sql.LoadData<GroupModel, dynamic>("dbo.spGroup_GetAll", new { }, "KNBNData");
@@ -37,6 +42,12 @@ namespace KNBNApi.Library.DataAccess
 
             return output;
         }
-        
+
+        List<UserModel> IGroupData.GetAllUsers()
+        {
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroup", new { }, "KNBNData");
+
+            return output;
+        }
     }
 }
