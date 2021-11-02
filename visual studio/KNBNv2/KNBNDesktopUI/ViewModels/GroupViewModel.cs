@@ -73,19 +73,18 @@ namespace KNBNDesktopUI.ViewModels
         {
             var groupList = await _groupEndpoint.GetAll();
             Groups = new BindingList<GroupModel>(groupList);
-            var userList = await _userEndpoint.GetAll();
-            Users = new BindingList<UserModel>(userList);
         }
 
         private async Task LoadUsers()
         {
-            var users = await _userEndpoint.GetAll();
+            var users = await _groupEndpoint.GetAllUsers();
 
+            Users.Clear();
             //AvailableUsers.Clear();
 
             foreach (var user in users)
             {
-
+                
             }
         }
 
