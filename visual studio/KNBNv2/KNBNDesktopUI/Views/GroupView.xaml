@@ -115,7 +115,7 @@
                         <ListBox.ItemTemplate >
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Email}"/>
+                                    <!--<TextBlock Text="{Binding Email}"/>-->
                                     <TextBlock Text="{Binding UserName}"/>
                                 </StackPanel>
                             </DataTemplate>

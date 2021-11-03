@@ -11,7 +11,9 @@ namespace KNBNDesktopUI.Library.Api
     {
         Task<List<GroupModel>> GetAll();
 
-        Task<Dictionary<string, string>> GetAllUsers();
+
+        Task<List<GroupUserModel>> GetAllUsers(int groupId);
+        Task<List<GroupUserModel>> GetAllUsersToAdd(int groupId);
 
         Task CreateGroup(CreateGroupModel model);
     }

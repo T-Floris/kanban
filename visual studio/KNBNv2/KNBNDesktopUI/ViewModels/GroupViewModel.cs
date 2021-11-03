@@ -59,13 +59,14 @@ namespace KNBNDesktopUI.ViewModels
                     default:
                         break;
                 }
-                
+                /*
                 if (ex.Message == "Unauthorized")
                 {
                     _status.UpdateMessage("Unauthorized Acces", "You shall not passed!");
                     await _window.ShowDialogAsync(_status, null, settings);
 
                 }
+                */
             }
         }
         // Load all groups
@@ -77,15 +78,18 @@ namespace KNBNDesktopUI.ViewModels
 
         private async Task LoadUsers()
         {
-            var users = await _groupEndpoint.GetAllUsers();
-
-            Users.Clear();
+            var userList = await _groupEndpoint.GetAllUsersToAdd(SelectedGroup.Id);
+            var groupUserList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id);
+            Users = new BindingList<GroupUserModel>(userList);
+            GroupUsers = new BindingList<GroupUserModel>(groupUserList);
+            //Users.Clear();
             //AvailableUsers.Clear();
-
+            /*
             foreach (var user in users)
             {
                 
             }
+            */
         }
 
 
@@ -116,6 +120,9 @@ namespace KNBNDesktopUI.ViewModels
                 _selectedGroup = value;
                 SelectedGroupName = value.Name;
 
+                Users.Clear();
+                Users = new BindingList<GroupUserModel>();
+                _ = LoadUsers();
 
 
                 NotifyOfPropertyChange(() => SelectedGroup);
@@ -125,10 +132,27 @@ namespace KNBNDesktopUI.ViewModels
 
         #endregion
 
+        public BindingList<GroupUserModel> _groupUsers { get; set; }
 
-        private BindingList<UserModel> _users;
+        private BindingList<GroupUserModel> _groupUser;
 
-        public BindingList<UserModel> Users
+        public BindingList<GroupUserModel> GroupUsers
+        {
+            get 
+            { 
+                return _groupUser; 
+            }
+            set 
+            { 
+                _groupUser = value;
+                NotifyOfPropertyChange(() => GroupUsers);
+            }
+        }
+
+
+        private BindingList<GroupUserModel> _users = new BindingList<GroupUserModel>();
+
+        public BindingList<GroupUserModel> Users
         {
             get { return _users; }
             set

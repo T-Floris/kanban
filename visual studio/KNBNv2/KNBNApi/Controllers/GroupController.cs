@@ -101,10 +101,19 @@ namespace KNBNApi.Controllers
         #region (Admin+) Get all users
         [Authorize(Roles = "Admin")]
         [HttpGet]
-        [Route("Admin/GetAllUsers")]
-        public Dictionary<string, string> GetAllUsers()
+        [Route("Admin/GetAllUsersToAdd/{groupId}")]
+        public List<GroupUserModel> GetAllUsersToAdd(int groupId)
         {
-            var users = _groupData.GetAllUsers().ToDictionary(x => x.Id, x => x.UserName);
+            var users = _groupData.GetAllUsersToAdd(groupId);
+            return users;
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/GetAllUsers/{groupId}")]
+        public List<GroupUserModel> GetAllUsers(int groupId)
+        {
+            var users = _groupData.GetAllUsers(groupId);
             return users;
         }
 

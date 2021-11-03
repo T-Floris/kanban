@@ -3,7 +3,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	
-	SELECT [User].[UserName], [Group].[Name]
+	SELECT [Group].[Id], [User].[UserName], [Group].[Name]
 	FROM [dbo].[Group], [dbo].[User]
 	WHERE [User].[Id] = [Group].[UserId]
 END

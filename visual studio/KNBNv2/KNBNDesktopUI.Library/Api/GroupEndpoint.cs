@@ -49,13 +49,14 @@ namespace KNBNDesktopUI.Library.Api
             
         }
 
-        public async Task<Dictionary<string, string>> GetAllUsers()
+        public async Task<List<GroupUserModel>> GetAllUsersToAdd(int groupId)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllRoles"))
+            
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsersToAdd/" + groupId))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<Dictionary<string, string>>();
+                    var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
                     return result;
                 }
                 else
@@ -64,5 +65,23 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
+        public async Task<List<GroupUserModel>> GetAllUsers(int groupId)
+        {
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
     }
 }

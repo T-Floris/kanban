@@ -82,6 +82,8 @@
     <Build Include="dbo\Stored Procedures\Group\spGroup_Insert.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Lookup.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroup_Users.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroup_UserToAdd.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />
