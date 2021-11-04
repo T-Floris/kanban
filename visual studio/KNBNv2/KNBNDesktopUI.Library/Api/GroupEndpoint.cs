@@ -83,5 +83,47 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
+        public async Task AddUserToGroup(string userId, int groupId)
+        {
+            var data = new { userId, groupId };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUser", data))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task RemoveUserFromGroup(string userId, int groupId)
+        {
+            var data = new { userId, groupId };
+
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUser/" + userId + "/" + groupId))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+        /*
+        public async Task<List<GroupUserModel>> GetAllUsersToAdd(int groupId)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+        */
     }
 }

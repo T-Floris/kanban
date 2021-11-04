@@ -132,19 +132,17 @@ namespace KNBNDesktopUI.ViewModels
 
         #endregion
 
-        public BindingList<GroupUserModel> _groupUsers { get; set; }
-
-        private BindingList<GroupUserModel> _groupUser;
+        private BindingList<GroupUserModel> _groupUsers { get; set; }
 
         public BindingList<GroupUserModel> GroupUsers
         {
             get 
             { 
-                return _groupUser; 
+                return _groupUsers; 
             }
             set 
-            { 
-                _groupUser = value;
+            {
+                _groupUsers = value;
                 NotifyOfPropertyChange(() => GroupUsers);
             }
         }
