@@ -102,7 +102,7 @@ namespace KNBNApi.Controllers
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Admin/GetAllUsersToAdd/{groupId}")]
-        public List<GroupUserModel> GetAllUsersToAdd(int groupId)
+        public List<UserModel> GetAllUsersToAdd(int groupId)
         {
             var users = _groupData.GetAllUsersToAdd(groupId);
             return users;
@@ -111,7 +111,7 @@ namespace KNBNApi.Controllers
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Admin/GetAllUsers/{groupId}")]
-        public List<GroupUserModel> GetAllUsers(int groupId)
+        public List<UserModel> GetAllUsers(int groupId)
         {
             var users = _groupData.GetAllUsers(groupId);
             return users;

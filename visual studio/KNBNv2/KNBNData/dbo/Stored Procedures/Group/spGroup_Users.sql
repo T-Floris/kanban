@@ -13,7 +13,7 @@ begin
 */
 
 
-	SELECT [User].[UserName]
+	SELECT [User].[Id], [User].[FirstName],[User].[LastName], [User].[UserName], [User].[EmailAddress] 
 	from [dbo].[User]
 	where [User].[Id]  IN (SELECT [GroupUser].[UserId] FROM [GroupUser] WHERE [GroupUser].[GroupId] = @GroupId ) 
 	/*

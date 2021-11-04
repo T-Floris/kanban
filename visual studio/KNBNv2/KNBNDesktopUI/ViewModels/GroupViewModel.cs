@@ -80,8 +80,8 @@ namespace KNBNDesktopUI.ViewModels
         {
             var userList = await _groupEndpoint.GetAllUsersToAdd(SelectedGroup.Id);
             var groupUserList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id);
-            Users = new BindingList<GroupUserModel>(userList);
-            GroupUsers = new BindingList<GroupUserModel>(groupUserList);
+            Users = new BindingList<UserModel>(userList);
+            GroupUsers = new BindingList<UserModel>(groupUserList);
             //Users.Clear();
             //AvailableUsers.Clear();
             /*
@@ -121,7 +121,7 @@ namespace KNBNDesktopUI.ViewModels
                 SelectedGroupName = value.Name;
 
                 Users.Clear();
-                Users = new BindingList<GroupUserModel>();
+                Users = new BindingList<UserModel>();
                 _ = LoadUsers();
 
 
@@ -132,9 +132,9 @@ namespace KNBNDesktopUI.ViewModels
 
         #endregion
 
-        private BindingList<GroupUserModel> _groupUsers { get; set; }
+        private BindingList<UserModel> _groupUsers { get; set; }
 
-        public BindingList<GroupUserModel> GroupUsers
+        public BindingList<UserModel> GroupUsers
         {
             get 
             { 
@@ -148,9 +148,9 @@ namespace KNBNDesktopUI.ViewModels
         }
 
 
-        private BindingList<GroupUserModel> _users = new BindingList<GroupUserModel>();
+        private BindingList<UserModel> _users = new BindingList<UserModel>();
 
-        public BindingList<GroupUserModel> Users
+        public BindingList<UserModel> Users
         {
             get { return _users; }
             set

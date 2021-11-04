@@ -21,4 +21,3 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\ref\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.pdb
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.csproj.AssemblyReference.cache

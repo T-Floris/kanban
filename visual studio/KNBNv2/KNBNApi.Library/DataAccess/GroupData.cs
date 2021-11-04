@@ -44,15 +44,15 @@ public Task<Dictionary<string, string>> GetAllUsers()
             return output;
         }
 
-        List<GroupUserModel> IGroupData.GetAllUsersToAdd(int groupId)
+        List<UserModel> IGroupData.GetAllUsersToAdd(int groupId)
         {
-            var output = _sql.LoadData<GroupUserModel, dynamic>("dbo.spGroup_UserToAdd", new { groupId }, "KNBNData");
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroup_UserToAdd", new { groupId }, "KNBNData");
 
             return output;
         }
-        public List<GroupUserModel> GetAllUsers(int groupId)
+        public List<UserModel> GetAllUsers(int groupId)
         {
-            var output = _sql.LoadData<GroupUserModel, dynamic>("dbo.spGroup_Users", new { groupId }, "KNBNData");
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroup_Users", new { groupId }, "KNBNData");
 
             return output;
         }
