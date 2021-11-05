@@ -98,22 +98,22 @@ namespace KNBNApi.Controllers
 
 
 
-        #region (Admin+) Get all users
         [Authorize(Roles = "Admin")]
-        [HttpGet]
-        [Route("Admin/GetAllUsersToAdd/{groupId}")]
+        [HttpPost]
+        [Route("Admin/AddUserToGroup")]
         public List<UserModel> GetAllUsersToAdd(int groupId)
         {
             var users = _groupData.GetAllUsersToAdd(groupId);
             return users;
         }
+        #region (Admin+) Get all users
 
         [Authorize(Roles = "Admin")]
         [HttpGet]
-        [Route("Admin/GetAllUsers/{groupId}")]
-        public List<UserModel> GetAllUsers(int groupId)
+        [Route("Admin/GetAllUsers/{groupId}/{GetInGroup}")]
+        public List<UserModel> GetAllUsers(int groupId, int GetInGroup)
         {
-            var users = _groupData.GetAllUsers(groupId);
+            var users = _groupData.GetAllUsers(groupId, GetInGroup);
             return users;
         }
 

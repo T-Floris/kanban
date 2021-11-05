@@ -49,14 +49,19 @@ namespace KNBNDesktopUI.Library.Api
             
         }
 
-        public async Task<List<UserModel>> GetAllUsersToAdd(int groupId)
+        public async Task<List<GroupUserModel>> AddUserToGroup(int groupId, string userId)
         {
+            var date = new
+            {
+                groupId,
+                userId
+            };
             
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsersToAdd/" + groupId))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUserToGroup/", date))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
+                    var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
                     return result;
                 }
                 else
@@ -66,10 +71,10 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
-        public async Task<List<UserModel>> GetAllUsers(int groupId)
+        public async Task<List<UserModel>> GetAllUsers(int groupId, int GetInGroup)
         {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/" + GetInGroup))
             {
                 if (response.IsSuccessStatusCode)
                 {

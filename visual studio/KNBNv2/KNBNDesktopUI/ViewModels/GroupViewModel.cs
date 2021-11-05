@@ -28,7 +28,8 @@ namespace KNBNDesktopUI.ViewModels
             _userEndpoint = userEndpoint;
             _groupEndpoint = groupEndpoint;
         }
-
+        
+        //run when th viwe is lodet
         protected override async void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
@@ -69,34 +70,28 @@ namespace KNBNDesktopUI.ViewModels
                 */
             }
         }
-        // Load all groups
+        
+        // Load all groups, and run on load
         private async Task LoadGroups()
         {
             var groupList = await _groupEndpoint.GetAll();
             Groups = new BindingList<GroupModel>(groupList);
         }
 
+        // run when a group is selected
         private async Task LoadUsers()
         {
-            var userList = await _groupEndpoint.GetAllUsersToAdd(SelectedGroup.Id);
-            var groupUserList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id);
-            Users = new BindingList<UserModel>(userList);
-            GroupUsers = new BindingList<UserModel>(groupUserList);
-            //Users.Clear();
-            //AvailableUsers.Clear();
-            /*
-            foreach (var user in users)
-            {
-                
-            }
-            */
+            var userInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 1);
+            var UserNotInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 0);
+            UsersInGroup = new BindingList<UserModel>(userInGroupList);
+            Users = new BindingList<UserModel>(UserNotInGroupList);
+
         }
 
 
-        #region All Groups in database to select
+        #region Load in all Groups in database
 
-        //private string SelectedGroupName;
-        BindingList<GroupModel> _groups;
+        private BindingList<GroupModel> _groups;
         public BindingList<GroupModel> Groups
         {
             get 
@@ -109,8 +104,9 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => Groups);
             }
         }
-        
-        // change the groupname to the selected group
+
+        // get the selected group and set it's name (SelectedGroupName)
+        // and load in all users in the group and all not in the group
         private GroupModel _selectedGroup;
         public GroupModel SelectedGroup
         {
@@ -120,50 +116,16 @@ namespace KNBNDesktopUI.ViewModels
                 _selectedGroup = value;
                 SelectedGroupName = value.Name;
 
-                Users.Clear();
-                Users = new BindingList<UserModel>();
                 _ = LoadUsers();
 
-
                 NotifyOfPropertyChange(() => SelectedGroup);
-
             }
         }
 
-        #endregion
-
-        private BindingList<UserModel> _groupUsers { get; set; }
-
-        public BindingList<UserModel> GroupUsers
-        {
-            get 
-            { 
-                return _groupUsers; 
-            }
-            set 
-            {
-                _groupUsers = value;
-                NotifyOfPropertyChange(() => GroupUsers);
-            }
-        }
-
-
-        private BindingList<UserModel> _users = new BindingList<UserModel>();
-
-        public BindingList<UserModel> Users
-        {
-            get { return _users; }
-            set
-            {
-                _users = value;
-                NotifyOfPropertyChange(() => Users);
-            }
-        }
-
-
-        #region All members of the selected group
+        #region get name of the selected group
 
         // change the text in textbox to the selected user
+
 
         private string _selectedGroupName;
 
@@ -177,7 +139,64 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
+
         #endregion
+
+
+        #endregion
+
+        #region Load in all users in selected group
+        private BindingList<UserModel> _usersInGroup { get; set; }
+
+        public BindingList<UserModel> UsersInGroup
+        {
+            get 
+            { 
+                return _usersInGroup; 
+            }
+            set 
+            {
+                _usersInGroup = value;
+                NotifyOfPropertyChange(() => UsersInGroup);
+            }
+        }
+
+        #endregion
+
+        #region Load in all users not in selecte group
+        private BindingList<UserModel> _users = new BindingList<UserModel>();
+
+        public BindingList<UserModel> Users
+        {
+            get { return _users; }
+            set
+            {
+                _users = value;
+                NotifyOfPropertyChange(() => Users);
+            }
+        }
+        #endregion
+
+
+
+        public async Task AddUserToGroup()
+        {
+            try
+            {
+                var users = Users;
+
+                foreach (var user in users)
+                {
+                    await _groupEndpoint.AddUserToGroup(SelectedGroup.Id, user.Id);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         /*
 
         //TODO Get all users in selected group

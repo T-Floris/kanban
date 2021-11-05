@@ -1,6 +1,13 @@
 ﻿CREATE PROCEDURE [dbo].[spGroupUser_Delete]
-	@param1 int = 0,
-	@param2 int
+	@UserId NVARCHAR(128),
+	@GroupId INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SET NOCOUNT ON
+
+	DELETE 
+	FROM [dbo].[GroupUser]
+	WHERE [GroupUser].[GroupId] = @GroupId AND [GroupUser].[UserId] = @UserId
+	
+
+END

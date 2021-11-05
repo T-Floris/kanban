@@ -1,6 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spGroupUser_Insert]
-	@param1 int = 0,
-	@param2 int
+	@UserId NVARCHAR(128),
+	@GroupId INT
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	SET NOCOUNT ON
+
+	INSERT INTO [dbo].[GroupUser] ([GroupId], [UserId])
+	VALUES (@GroupId, @UserId)
+END
