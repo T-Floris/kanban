@@ -25,7 +25,7 @@ namespace KNBNApi.Library.DataAccess
 
         public void AddUserToGroup(GroupUserModel groupUser)
         {
-            _sql.SaveData("dbo.spGroup_Insert", new { groupUser.GroupId, groupUser.UserId  }, "KNBNData");
+            _sql.SaveData("dbo.spGroupUser_Insert", new { groupUser.GroupId, groupUser.UserId  }, "KNBNData");
         }
 
         /*

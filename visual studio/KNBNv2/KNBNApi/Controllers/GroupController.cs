@@ -103,7 +103,7 @@ namespace KNBNApi.Controllers
         [Route("Admin/AddUserToGroup")]
         public List<UserModel> GetAllUsersToAdd(int groupId)
         {
-            var users = _groupData.GetAllUsersToAdd(groupId);
+            var users = _groupData.AddUserToGroup(groupId, "1");
             return users;
         }
         #region (Admin+) Get all users
