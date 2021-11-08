@@ -97,15 +97,52 @@ namespace KNBNApi.Controllers
         #endregion
 
 
+        #region Controle members of group
+        public record ControleGroupUserModel
+        (
+            int groupId,
+            string userId
+        );
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        [Route("Admin/AddUserToGroup")]
-        public List<UserModel> GetAllUsersToAdd(int groupId)
+        [Route("Admin/AddUsersToGroup")]
+        public async Task<IActionResult> AddUsersToGroup(ControleGroupUserModel groupUser)
         {
-            var users = _groupData.AddUserToGroup(groupId, "1");
-            return users;
+            if (ModelState.IsValid)
+            {
+                GroupUserModel gu = new()
+                {
+                    GroupId = groupUser.groupId,
+                    UserId = groupUser.userId
+                };
+                
+                _groupData.AddUsersToGroup(gu);
+            }
+            return Ok();
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        [Route("Admin/RemoveUsersFromGroup/{groupId}/{userId}")]
+        public async Task<IActionResult> RemoveUserFromGroup(int groupId, string userId)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                GroupUserModel gu = new()
+                {
+                    GroupId = groupId,
+                    UserId = userId
+                };
+                
+
+               _groupData.RemoveUsersFromGroup(gu);
+            }
+            return Ok();
+        }
+
+        #endregion
         #region (Admin+) Get all users
 
         [Authorize(Roles = "Admin")]

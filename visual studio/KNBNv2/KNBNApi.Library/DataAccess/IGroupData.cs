@@ -17,7 +17,10 @@ namespace KNBNApi.Library.DataAccess
 
         List<UserModel> GetAllUsers(int groupId, int GetInGroup);
 
-        void AddUserToGroup(GroupUserModel groupUser);
+        void AddUsersToGroup(GroupUserModel groupUser);
+
+        void RemoveUsersFromGroup(GroupUserModel groupUser);
+
 
         List<GroupModel> GetGroupTitle(string Name);
     }

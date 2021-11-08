@@ -23,9 +23,14 @@ namespace KNBNApi.Library.DataAccess
             _sql.SaveData("dbo.spGroup_Insert", new { group.UserId, group.Name, group.Color }, "KNBNData");
         }
 
-        public void AddUserToGroup(GroupUserModel groupUser)
+        public void AddUsersToGroup(GroupUserModel groupUser)
         {
-            _sql.SaveData("dbo.spGroupUser_Insert", new { groupUser.GroupId, groupUser.UserId  }, "KNBNData");
+            _sql.SaveData("dbo.spGroupUser_Insert", new { groupUser.GroupId, groupUser.UserId }, "KNBNData");
+        }
+
+        public void RemoveUsersFromGroup(GroupUserModel groupUser)
+        {
+            _sql.SaveData("dbo.spGroupUser_Delete", new { groupUser.GroupId, groupUser.UserId }, "KNBNData");
         }
 
         /*

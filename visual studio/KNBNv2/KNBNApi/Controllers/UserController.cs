@@ -292,7 +292,7 @@ namespace KNBNApi.Controllers
 
         #region (Admin) Delete selected user
         [Authorize(Roles = "Admin")]
-        [HttpGet]
+        [HttpDelete]
         [Route("Admin/DeleteUser")]
         public async Task DeleteSelectedUser(DeleteUserModel model)
         {

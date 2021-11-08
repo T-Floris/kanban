@@ -57,7 +57,7 @@ namespace KNBNDesktopUI.Library.Api
                 userId
             };
             
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUserToGroup/", date))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUsersToGroup/", date))
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -87,7 +87,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
-
+        /*
         public async Task AddUserToGroup(string userId, int groupId)
         {
             var data = new { userId, groupId };
@@ -100,12 +100,11 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
-
+        */
+        /*
         public async Task RemoveUserFromGroup(string userId, int groupId)
         {
-            var data = new { userId, groupId };
-
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUser/" + userId + "/" + groupId))
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUsersFromGroup/" + userId + "/" + groupId))
             {
                 if (response.IsSuccessStatusCode == false)
                 {
@@ -113,6 +112,21 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+        */
+        public async Task RemoveUserFromGroup(int groupId, string userId)
+        {
+            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUsersFromGroup/" + groupId + "/" + userId))
+            {
+                if (response.IsSuccessStatusCode == false)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+
+
+            }
+
+        }
+
         /*
         public async Task<List<GroupUserModel>> GetAllUsersToAdd(int groupId)
         {

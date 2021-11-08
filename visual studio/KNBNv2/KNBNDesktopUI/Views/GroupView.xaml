@@ -111,12 +111,12 @@
 
                     <TextBlock Text="Users" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
 
-                    <ListBox x:Name="Users" Grid.Row="1" Grid.Column="0" MinHeight="300"  MinWidth="150" SelectedItem="SelectedUsers" SelectionMode="Multiple">
+                    <ListBox x:Name="Users" Grid.Row="1" Grid.Column="0" MinHeight="300"  MinWidth="150" SelectionMode="Multiple">
                         <ListBox.ItemTemplate >
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical">
                                     <!--<TextBlock Text="{Binding Email}"/>-->
-                                    <TextBlock Text="{Binding UserName}"/>
+                                    <TextBlock Name="AvailableRoles" Text="{Binding UserName}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

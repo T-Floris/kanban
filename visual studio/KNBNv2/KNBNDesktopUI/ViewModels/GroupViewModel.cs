@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DocumentFormat.OpenXml.Spreadsheet;
 using KNBNDesktopUI.Library.Api;
 using KNBNDesktopUI.Library.Models;
+using KNBNDesktopUI.Views;
 
 namespace KNBNDesktopUI.ViewModels
 {
@@ -18,15 +20,19 @@ namespace KNBNDesktopUI.ViewModels
         private readonly IWindowManager _window;
         private readonly IUserEndpoint _userEndpoint;
         private readonly IGroupEndpoint _groupEndpoint;
+        private readonly GroupView _groupView;
+
+        private bool IsinGroup = true;
 
 
 
-        public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
+        public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint, GroupView groupView)
         {
             _status = status;
             _window = window;
             _userEndpoint = userEndpoint;
             _groupEndpoint = groupEndpoint;
+            _groupView = groupView;
         }
         
         //run when th viwe is lodet
@@ -81,8 +87,8 @@ namespace KNBNDesktopUI.ViewModels
         // run when a group is selected
         private async Task LoadUsers()
         {
-            var userInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 1);
-            var UserNotInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 0);
+            var userInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, IsinGroup.GetHashCode());
+            var UserNotInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, (!IsinGroup).GetHashCode());
             UsersInGroup = new BindingList<UserModel>(userInGroupList);
             Users = new BindingList<UserModel>(UserNotInGroupList);
 
@@ -177,6 +183,8 @@ namespace KNBNDesktopUI.ViewModels
         }
         #endregion
 
+        
+
 
 
         public async Task AddUserToGroup()
@@ -189,6 +197,26 @@ namespace KNBNDesktopUI.ViewModels
                 {
                     await _groupEndpoint.AddUserToGroup(SelectedGroup.Id, user.Id);
                 }
+                _ = LoadUsers();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task RemoveFromGroup()
+        {
+            try
+            {
+                var usersInGroup = UsersInGroup;
+
+                foreach (var userInGroup in UsersInGroup)
+                {
+                    await _groupEndpoint.RemoveUserFromGroup(SelectedGroup.Id, userInGroup.Id);
+                }
+                _ = LoadUsers();
             }
             catch (Exception)
             {
