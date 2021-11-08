@@ -109,6 +109,7 @@ namespace KNBNApi.Controllers
         [Route("Admin/AddUsersToGroup")]
         public async Task<IActionResult> AddUsersToGroup(ControleGroupUserModel groupUser)
         {
+<<<<<<< HEAD
             if (ModelState.IsValid)
             {
                 GroupUserModel gu = new()
@@ -140,6 +141,10 @@ namespace KNBNApi.Controllers
                _groupData.RemoveUsersFromGroup(gu);
             }
             return Ok();
+=======
+            var users = _groupData.GetAllUsersToAdd(groupId);
+            return users;
+>>>>>>> parent of dd6b037 (1)
         }
 
         #endregion
