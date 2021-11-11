@@ -44,8 +44,6 @@ namespace KNBNApi.Controllers
 
             return _userData.GetUserById(userId).First();
 
-            
-
         }
         #endregion
 
@@ -185,8 +183,13 @@ namespace KNBNApi.Controllers
 
         #endregion
 
+<<<<<<< HEAD
         #region (Authorize) change user info for yourself
         //TODO UpdateUserInfo
+=======
+        #region (Authorize) change user info
+        //UpdateUserInfo
+>>>>>>> til_m
         public record UpdateUserInfoModel(
             string currentPassword,
             string newPassword
@@ -285,12 +288,30 @@ namespace KNBNApi.Controllers
         [HttpDelete]
         [Route("DeleteUser")]
         public async Task DeleteUser()
+<<<<<<< HEAD
+=======
+        {
+            var user = await _userManager.FindByIdAsync(ClaimTypes.NameIdentifier);
+
+            await _userManager.DeleteAsync(user);
+            _userData.DeleteUser(user.Id);
+        }
+
+        #endregion
+
+        #region (Admin) Delete selected user
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        [Route("Admin/DeleteUser")]
+        public async Task DeleteSelectedUser(DeleteUserModel model)
+>>>>>>> til_m
         {
             if (ModelState.IsValid)
             {
                 //var user = await _userManager.FindByIdAsync(model.UserId);
                 IdentityUser user = await _userManager.FindByIdAsync(ClaimTypes.NameIdentifier);
 
+<<<<<<< HEAD
                 //string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                /* _logger.LogInformation("Admin {Admin} Deletet user {User}",
                     loggedInUserId, user.Id);
@@ -313,10 +334,13 @@ namespace KNBNApi.Controllers
             {
                 var user = await _userManager.FindByIdAsync(model.UserId);
 
+=======
+>>>>>>> til_m
                 await _userManager.DeleteAsync(user);
                 _userData.DeleteUser(user.Id);
             }
         }
+
 
         #endregion
 

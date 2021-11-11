@@ -185,9 +185,5 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
-        public Task UpdateEmail(UpdateEmailModel model, UpdateUserModel userModel)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

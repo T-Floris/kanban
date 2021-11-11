@@ -46,7 +46,12 @@ namespace KNBNApi
             // Personal Services
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             services.AddTransient<IUserData, UserData>();
+<<<<<<< HEAD
             
+=======
+            services.AddTransient<IGroupData, GroupData>();
+
+>>>>>>> til_m
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";

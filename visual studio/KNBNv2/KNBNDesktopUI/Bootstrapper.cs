@@ -14,6 +14,7 @@ using KNBNDesktopUI.Library.Api;
 using KNBNDesktopUI.Library.Models;
 //using KNBNDesktopUI.Models;
 using KNBNDesktopUI.ViewModels;
+using KNBNDesktopUI.Views;
 
 namespace KNBNDesktopUI
 {
@@ -66,7 +67,10 @@ namespace KNBNDesktopUI
             _container.Instance(ConfigureAutoMapper());
 
             _container.Instance(_container)
-                .PerRequest<IUserEndpoint, UserEndpoint>();
+                .PerRequest<IUserEndpoint, UserEndpoint>()
+                .PerRequest<IGroupEndpoint, GroupEndpoint>()
+                .PerRequest<GroupView>();
+
 
             _container
                 .Singleton<IWindowManager, WindowManager>()

@@ -43,14 +43,15 @@ export const FooterLinkItems = styled.div`
     color: #fff;
 
     @media screen and (max-width: 420px) {
-        margin: 0;
-        padding: 100%;
-        width: 100%;
+        /* margin: 0; */
+        margin-left: 20%;
+        /* padding: 100%;
+        width: 100%; */
     }
 `
 
 export const FooterLinkTitle = styled.h1`
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 16px;
 `
 

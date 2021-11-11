@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="40ee97de-f9d1-4d7a-9fdf-fddfb51f1501" ChangeDateTime="11/05/2021 12:22:01">
+    <Property Name="ElementName" Value="[dbo].[GPGroupUser].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GPGroupUser]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GroupPermissonId" />
+  </Operation>
+</Operations>

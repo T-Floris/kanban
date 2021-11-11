@@ -8,6 +8,7 @@ namespace KNBNApi.Library.Models
 {
     public class GroupUserModel
     {
+<<<<<<< HEAD
         public string BoarName
         {
             get; set;
@@ -17,5 +18,10 @@ namespace KNBNApi.Library.Models
         {
             get; set;
         }
+=======
+        public int GroupId { get; set; }
+        public string UserId { get; set; }
+
+>>>>>>> til_m
     }
 }

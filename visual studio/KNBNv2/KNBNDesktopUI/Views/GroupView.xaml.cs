@@ -24,5 +24,10 @@ namespace KNBNDesktopUI.Views
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> til_m
     }
 }
