@@ -114,13 +114,6 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
-
-
-
-
-
-
-
         public UserDisplayViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint)
         {
             _status = status;

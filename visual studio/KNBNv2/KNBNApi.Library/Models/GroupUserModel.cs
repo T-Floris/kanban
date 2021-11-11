@@ -8,8 +8,14 @@ namespace KNBNApi.Library.Models
 {
     public class GroupUserModel
     {
-        public int GroupId { get; set; }
-        public string UserId { get; set; }
+        public string BoarName
+        {
+            get; set;
+        }
 
+        public string UserName
+        {
+            get; set;
+        }
     }
 }

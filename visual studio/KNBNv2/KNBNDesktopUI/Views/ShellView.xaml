@@ -13,7 +13,6 @@
             </MenuItem>
             <MenuItem Header="_Account">
                 <MenuItem x:Name="LogIn" Header="Log _In"  Visibility="{Binding IsLoggedOut, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
-                <MenuItem x:Name="Register" Header="_Register"  Visibility="{Binding IsLoggedOut, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
                 <MenuItem x:Name="LogOut" Header="_Log Out" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
             </MenuItem>
             <MenuItem Header="_Users"  Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
@@ -21,10 +20,6 @@
                 <MenuItem x:Name="UserProfile" Header="User _Profile"/>
             </MenuItem>
             <MenuItem x:Name="Workspaces" Header="_Workspaces" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
-            <MenuItem Header="_Group" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                <MenuItem x:Name="GroupManagement" Header="Group_Management" Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                <MenuItem x:Name="CreateGroup" Header="Create_Group"/>
-            </MenuItem>
 
         </Menu>
         <Grid>

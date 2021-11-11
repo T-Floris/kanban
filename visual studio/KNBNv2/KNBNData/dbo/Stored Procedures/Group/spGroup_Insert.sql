@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[spGroup_Insert]
-	@UserId nvarchar(128),
-	@Name nvarchar(50),
+	@UserId int = 0,
+	@Name NVARCHAR,
 	@Color NVARCHAR(7)
 AS
 BEGIN
 	SET NOCOUNT ON
 
-	INSERT INTO [dbo].[Group] ([UserId], [Name], [Color])
+	INSERT INTO [dbo].[Group]
 	VALUES (@UserId, @Name, @Color)
 END

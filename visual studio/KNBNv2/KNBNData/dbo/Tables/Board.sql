@@ -3,6 +3,6 @@
 	[Id] INT NOT NULL IDENTITY(1,1),
 	[UserId] nvarchar(128) NULL, 
     [Name] NCHAR(10) NOT NULL, 
-    CONSTRAINT [PK_Board-Id] PRIMARY KEY ([Id]),
-	CONSTRAINT [FK_Board-UserId_User-Id] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
+    CONSTRAINT [PK_Board_Id] PRIMARY KEY ([Id]),
+	CONSTRAINT [FK_Board_User-Id] FOREIGN KEY ([UserId]) REFERENCES [User]([Id])
 )

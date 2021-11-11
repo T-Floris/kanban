@@ -34,6 +34,10 @@ namespace KNBNDesktopUI.ViewModels
             ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
         }
 
+
+
+
+
         public bool IsLoggedIn
         {
             get
@@ -72,17 +76,11 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
-
-
-
-        /* File */
         public void ExitApplication()
         {
             TryCloseAsync();
         }
 
-
-        /* Account */
         public async Task LogIn()
         {
             await ActivateItemAsync(IoC.Get<LoginViewModel>(), new CancellationToken());
@@ -102,15 +100,6 @@ namespace KNBNDesktopUI.ViewModels
             NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
-        public async Task Register()
-        {
-            await ActivateItemAsync(IoC.Get<RegisterViewModel>(), new CancellationToken());
-            NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => IsLoggedOut);
-        }
-
-
-        /* user */
         public async Task UserManagement()
         {
             await ActivateItemAsync(IoC.Get<UserDisplayViewModel>(), new CancellationToken());
@@ -125,31 +114,9 @@ namespace KNBNDesktopUI.ViewModels
             NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
-
-        /* Workspaces */
         public async Task Workspaces()
         {
             await ActivateItemAsync(IoC.Get<WorkspacesViewModel>(), new CancellationToken());
-            NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => IsLoggedOut);
-        }
-
-
-
-        /* Group */
-        public async Task GroupManagement()
-        {
-
-            await ActivateItemAsync(IoC.Get<GroupViewModel>(), new CancellationToken());
-            NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => IsLoggedOut);
-
-            
-        }
-
-        public async Task CreateGroup()
-        {
-            await ActivateItemAsync(IoC.Get<GroupCreateViewModel>(), new CancellationToken());
             NotifyOfPropertyChange(() => IsLoggedIn);
             NotifyOfPropertyChange(() => IsLoggedOut);
         }
@@ -177,35 +144,37 @@ namespace KNBNDesktopUI.ViewModels
             {
                 case "Register":
                     await ActivateItemAsync(IoC.Get<RegisterViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
                     break;
 
                 case "LogOn":
-                    //await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), cancellationToken);
-                    await ActivateItemAsync(IoC.Get<GroupViewModel>(), cancellationToken);
+                    await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
                     break;
                
                 case "Password":
                     await ActivateItemAsync(IoC.Get<PasswordViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
                     break;
 
                 case "Email":
                     await ActivateItemAsync(IoC.Get<EmailViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
                     break;
 
                 case "UserName":
                     await ActivateItemAsync(IoC.Get<UserNameViewModel>(), cancellationToken);
-
-                    break;
-                case "Group":
-                    await ActivateItemAsync(IoC.Get<GroupViewModel>(), cancellationToken);
+                    NotifyOfPropertyChange(() => IsLoggedIn);
+                    NotifyOfPropertyChange(() => IsLoggedOut);
                     break;
 
                 default:
                     break;
             }
-
-            NotifyOfPropertyChange(() => IsLoggedIn);
-            NotifyOfPropertyChange(() => IsLoggedOut);
         }
     }
 }

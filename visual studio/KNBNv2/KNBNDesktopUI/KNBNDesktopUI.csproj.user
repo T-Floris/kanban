@@ -10,12 +10,6 @@
     <Compile Update="Views\EmailView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\GroupCreateView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\GroupView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,12 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\EmailView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\GroupCreateView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\GroupView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">

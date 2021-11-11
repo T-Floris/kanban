@@ -219,8 +219,4 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\ref\KNBNDesktopUI.dll
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.pdb
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.genruntimeconfig.cache
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupView.g.cs
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupView.baml
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupCreateView.g.cs
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupCreateView.baml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.csproj.CopyComplete

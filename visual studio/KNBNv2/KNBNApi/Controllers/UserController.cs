@@ -182,7 +182,7 @@ namespace KNBNApi.Controllers
         #endregion
 
         #region (Authorize) change user info
-        //UpdateUserInfo
+        //TODO UpdateUserInfo
         public record UpdateUserInfoModel(
             string currentPassword,
             string newPassword
@@ -292,7 +292,7 @@ namespace KNBNApi.Controllers
 
         #region (Admin) Delete selected user
         [Authorize(Roles = "Admin")]
-        [HttpDelete]
+        [HttpGet]
         [Route("Admin/DeleteUser")]
         public async Task DeleteSelectedUser(DeleteUserModel model)
         {

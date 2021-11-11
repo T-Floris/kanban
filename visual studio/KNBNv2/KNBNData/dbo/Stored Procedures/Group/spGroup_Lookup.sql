@@ -1,10 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spGroup_Lookup]
-	@groupName nvarchar(128)
+	@param1 int = 0,
+	@param2 int
 AS
-begin
-	set nocount on;
-
-	select [Id], [UserId], [Name], [Color]
-	from [dbo].[Group]
-	where [Name] LIKE '%' + @groupName + '%';
-end
+	SELECT @param1, @param2
+RETURN 0
