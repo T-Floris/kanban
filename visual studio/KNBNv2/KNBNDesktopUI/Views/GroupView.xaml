@@ -55,7 +55,7 @@
 
                     <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="0 5 0 0">
                         <TextBox x:Name="GroupName" Grid.Row="2" Grid.Column="2" MinWidth="150"/>
-                        <Button x:Name="SearchGroup" Content="Search" Margin="0 5"/>
+                        <!--<Button x:Name="SearchGroup" Content="Search" Margin="0 5"/>-->
                     </StackPanel>
 
                 </Grid>
@@ -73,13 +73,16 @@
                         <TextBlock Text="Group members in "/>
                         <TextBlock x:Name="SelectedGroupName"/>
                     </StackPanel>
-                    <ListBox x:Name="UsersInGroup" Grid.Row="1" Grid.Column="0" Margin="5" SelectedItem="SelectedGroupMembers" SelectionMode="Multiple">
+                    <ListBox x:Name="UsersInGroup" Grid.Row="1" Grid.Column="0" Margin="5" SelectedItem="SelectedUsersInGroup">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin=" 0">
                                     <TextBlock Text="{Binding FirstName}"/>
+                                    <TextBlock Text=" "/>
                                     <TextBlock Text="{Binding LastName}"/>
+                                    <TextBlock Text=" / "/>
                                     <TextBlock Text="{Binding EmailAddress}"/>
+                                    <TextBlock Text=" / "/>
                                     <TextBlock Text="{Binding UserName}"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -87,7 +90,7 @@
                     </ListBox>
                     <StackPanel Grid.Row="2" Grid.Column="0" Margin="5 0 5 0">
                         <TextBox x:Name="GroupMamperName" Grid.Row="2" Grid.Column="2" MinWidth="150"/>
-                        <Button x:Name="SearchMemper" Content="Search" Margin="0 5"/>
+                        <!--<Button x:Name="SearchMemper" Content="Search" Margin="0 5"/>-->
                         <Button x:Name="RemoveFromGroup" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" Margin="0 5"/>
                     </StackPanel>
                 </Grid>
@@ -110,13 +113,13 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Users" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
-
-                    <ListBox x:Name="Users" Grid.Row="1" Grid.Column="0" MinHeight="300"  MinWidth="150" SelectionMode="Multiple">
+                    <ListBox x:Name="Users" SelectedValue="" Grid.Row="1" Grid.Column="0" MinHeight="300" SelectedItem="SelectedUser" MinWidth="150" >
                         <ListBox.ItemTemplate >
                             <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <!--<TextBlock Text="{Binding Email}"/>-->
-                                    <TextBlock x:Name="AvailableRoles" Text="{Binding UserName}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding EmailAddress}"/>
+                                    <TextBlock Text=" / "/>
+                                    <TextBlock Name="AvailableRoles" Text="{Binding UserName}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -124,7 +127,7 @@
 
                     <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0" Margin="0 5 0 0">
                         <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" MinWidth="150"/>
-                        <Button x:Name="SearchUser" Content="Search" Margin="0 5"/>
+                        <!--<Button x:Name="SearchUser" Content="Search" Margin="0 5"/>-->
                         <Button x:Name="AddUserToGroup" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" Margin="0 5"/>
                     </StackPanel>
                 </Grid>

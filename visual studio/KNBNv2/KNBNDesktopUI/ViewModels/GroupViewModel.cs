@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using KNBNDesktopUI.Library.Api;
 using KNBNDesktopUI.Library.Models;
+using KNBNDesktopUI.Views;
 
 namespace KNBNDesktopUI.ViewModels
 {
@@ -18,18 +19,21 @@ namespace KNBNDesktopUI.ViewModels
         private readonly IWindowManager _window;
         private readonly IUserEndpoint _userEndpoint;
         private readonly IGroupEndpoint _groupEndpoint;
+        private readonly GroupView _groupView;
 
 
 
-        public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
+        public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint, GroupView groupView)
         {
             _status = status;
             _window = window;
             _userEndpoint = userEndpoint;
             _groupEndpoint = groupEndpoint;
+            _groupView = groupView;
         }
         
-        //run when th viwe is lodet
+
+        //run when the viwe is loadet
         protected override async void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
@@ -37,6 +41,7 @@ namespace KNBNDesktopUI.ViewModels
             try
             {
                 await LoadGroups();
+                
             }
             catch (Exception ex)
             {
@@ -81,16 +86,19 @@ namespace KNBNDesktopUI.ViewModels
         // run when a group is selected
         private async Task LoadUsers()
         {
-            var userInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 1);
-            var UserNotInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, 0);
-            UsersInGroup = new BindingList<UserModel>(userInGroupList);
-            Users = new BindingList<UserModel>(UserNotInGroupList);
+            if (SelectedGroup != null)
+            {
+                var userInGroupList = await _groupEndpoint.GetAllUsersInGroup(SelectedGroup.Id);
+                var UserNotInGroupList = await _groupEndpoint.GetAllUsersNotInGroup(SelectedGroup.Id);
+                UsersInGroup = new BindingList<UserModel>(userInGroupList);
+                Users = new BindingList<UserModel>(UserNotInGroupList);
+            }
 
         }
 
 
         #region Load in all Groups in database
-
+        // load in all group to select
         private BindingList<GroupModel> _groups;
         public BindingList<GroupModel> Groups
         {
@@ -102,8 +110,10 @@ namespace KNBNDesktopUI.ViewModels
             {
                 _groups = value;
                 NotifyOfPropertyChange(() => Groups);
+                
             }
         }
+
 
         // get the selected group and set it's name (SelectedGroupName)
         // and load in all users in the group and all not in the group
@@ -114,15 +124,25 @@ namespace KNBNDesktopUI.ViewModels
             set
             {
                 _selectedGroup = value;
-                SelectedGroupName = value.Name;
+                try
+                {
+                    SelectedGroupName ??= value.Name;
+                }
+                catch (Exception)
+                {
+                    SelectedGroupName = "";
+                }
+                
 
                 _ = LoadUsers();
 
                 NotifyOfPropertyChange(() => SelectedGroup);
+                
             }
         }
 
-        #region get name of the selected group
+
+        #region get and set name of the selected group
 
         // change the text in textbox to the selected user
 
@@ -164,9 +184,9 @@ namespace KNBNDesktopUI.ViewModels
         #endregion
 
         #region Load in all users not in selecte group
-        private BindingList<UserModel> _users = new BindingList<UserModel>();
+        private BindingList<UserModel> _users;
 
-        public BindingList<UserModel> Users
+        public BindingList<UserModel> Users 
         {
             get { return _users; }
             set
@@ -178,40 +198,72 @@ namespace KNBNDesktopUI.ViewModels
         #endregion
 
 
+        #region group edditer
 
-        public async Task AddUserToGroup()
+        private string _groupName;
+
+        public string GroupName
         {
-            try
-            {
-                var users = Users;
-
-                foreach (var user in users)
-                {
-                    await _groupEndpoint.AddUserToGroup(SelectedGroup.Id, user.Id);
-                }
-
-                _ = LoadUsers();
+            get 
+            { 
+                _ = SearchGroupName();
+                return _groupName;
             }
-            catch (Exception)
-            {
-
-                throw;
+            set 
+            { 
+                _groupName = value;
+                NotifyOfPropertyChange(() => GroupName);
+                _ = SearchGroupName();
             }
         }
+
+
+
+
+
+        #endregion
+
+        #region group-User edditer
+
+        private UserModel _selectedUsersInGroup;
+
+        public UserModel SelectedUsersInGroup
+        {
+            get { return _selectedUsersInGroup; }
+            set 
+            { 
+                _selectedUsersInGroup = value;
+                NotifyOfPropertyChange(() => SelectedUsersInGroup);
+            }
+        }
+
+        // Search function
+        #region groupMember Search
+        private string _groupMamperName;
+        
+        public string GroupMamperName
+        {
+            get { return _groupMamperName; }
+            set
+            {
+                _groupMamperName = value;
+                NotifyOfPropertyChange(() => GroupMamperName);
+                _ = SearchUserIngroup();
+            }
+        }
+        #endregion
+
 
         public async Task RemoveFromGroup()
         {
 
             try
             {
-                var usergroup = UsersInGroup;
-
-                foreach (var user in usergroup)
+                if (SelectedGroup != null && SelectedUsersInGroup != null)
                 {
-                    await _groupEndpoint.RemoveUserFromGroup(SelectedGroup.Id, user.Id);
+                    await _groupEndpoint.RemoveUserFromGroup(SelectedGroup.Id, SelectedUsersInGroup.Id);
+                    _ = LoadUsers();
                 }
-
-                _ = LoadUsers();
             }
             catch (Exception)
             {
@@ -220,6 +272,122 @@ namespace KNBNDesktopUI.ViewModels
             }
 
         }
+
+        /*public async Task SearchMemper()
+        {
+            try
+            {
+                //await _groupEndpoint.UserLookup(SelectedGroup.Id, "");
+
+                var userInGroup = await _groupEndpoint.UserInGroupLookup(SelectedGroup.Id, _groupMamperName);
+                UsersInGroup.Clear();
+                UsersInGroup = new BindingList<UserModel>(userInGroup);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        */
+        
+        #endregion
+
+        #region User edditer
+
+        private UserModel _selectedUser;
+
+        public UserModel SelectedUser
+        {
+            get { return _selectedUser; }
+            set 
+            {
+                _selectedUser = value;
+                NotifyOfPropertyChange(() => SelectedUser);
+            }
+        }
+
+        private string _userName;
+
+        public string UserName
+        {
+            get { return _userName; }
+            set 
+            { 
+                _userName = value;
+                NotifyOfPropertyChange(() => UserName);
+                _ = SearchUserNotIngroup();
+            }
+        }
+
+        public async Task AddUserToGroup()
+        {
+            try
+            {
+                if (SelectedGroup != null && SelectedUser != null)
+                {
+                    await _groupEndpoint.AddUserToGroup(SelectedGroup.Id, SelectedUser.Id);
+                    _ = LoadUsers();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        /*
+        public async Task SearchUser()
+        {
+            var user = await _groupEndpoint.UserNotInGroupLookup(SelectedGroup.Id, _groupMamperName);
+            UsersInGroup.Clear();
+            UsersInGroup = new BindingList<UserModel>(user);
+        }
+        */
+        #endregion
+
+
+
+        #region all Search function
+        private async Task SearchGroupName()
+        {
+            var getGroup = await _groupEndpoint.GroupLookup(_groupName);
+            if (Groups is not null)
+            {
+                Groups.Clear(); 
+            }
+            if (UsersInGroup is not null)
+            {
+                UsersInGroup.Clear(); 
+            }
+            if (Users is not null)
+            {
+                Users.Clear(); 
+            }
+
+            Groups = new BindingList<GroupModel>(getGroup);
+        }
+
+        private async Task SearchUserIngroup()
+        {
+            var getUserInGroup = await _groupEndpoint.UserInGroupLookup(SelectedGroup.Id, _groupMamperName);
+            UsersInGroup.Clear();
+            UsersInGroup = new BindingList<UserModel>(getUserInGroup);
+        }
+
+        private async Task SearchUserNotIngroup()
+        {
+            var getUserNotInGroup = await _groupEndpoint.UserNotInGroupLookup(SelectedGroup.Id, _userName);
+            Users.Clear();
+            Users = new BindingList<UserModel>(getUserNotInGroup);
+        }
+
+
+        #endregion
+
+
+
+
 
         /*
 

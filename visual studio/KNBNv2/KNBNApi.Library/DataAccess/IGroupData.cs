@@ -17,9 +17,18 @@ namespace KNBNApi.Library.DataAccess
 
         List<UserModel> GetAllUsers(int groupId, int GetInGroup);
 
+        #region Search functions
+        List<UserModel> SearchUserInGroup(int groupId, string username);
+        List<UserModel> SearchUserNotInGroup(int groupId, string username);
+        List<GroupModel> SearchGroup(string groupName);
+
+        #endregion
+
+        #region add and remove user from group
         void AddUsersToGroup(GroupUserModel groupUser);
 
         void RemoveUsersFromGroup(GroupUserModel groupUser);
+        #endregion
 
 
         List<GroupModel> GetGroupTitle(string Name);

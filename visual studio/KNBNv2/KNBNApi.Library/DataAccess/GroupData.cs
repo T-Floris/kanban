@@ -35,12 +35,6 @@ namespace KNBNApi.Library.DataAccess
             //_sql.SaveData("dbo.spGroup_Insert", new { groupUser.GroupId, groupUser.UserId  }, "KNBNData");
         }
 
-        /*
-public Task<Dictionary<string, string>> GetAllUsers()
-{
-   var output = _sql.LoadData
-}
-*/
         public List<GroupModel> GetGroups()
         {
             var output = _sql.LoadData<GroupModel, dynamic>("dbo.spGroup_GetAll", new { }, "KNBNData");
@@ -68,6 +62,32 @@ public Task<Dictionary<string, string>> GetAllUsers()
             return output;
         }
 
+        public List<UserModel> SearchUser(int groupId, string username)
+        {
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroupUser_Lookup", new { groupId, username }, "KNBNData");
 
+            return output;
+        }
+
+        public List<UserModel> SearchUserInGroup(int groupId, string username)
+        {
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroupUser_Lookup", new { groupId, username }, "KNBNData");
+
+            return output;
+        }
+
+        public List<UserModel> SearchUserNotInGroup(int groupId, string username)
+        {
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroup_User_Lookup", new { groupId, username }, "KNBNData");
+
+            return output;
+        }
+
+        public List<GroupModel> SearchGroup(string groupName)
+        {
+           var output = _sql.LoadData<GroupModel, dynamic>("dbo.spGroup_Lookup", new { groupName }, "KNBNData");
+
+            return output;
+        }
     }
 }

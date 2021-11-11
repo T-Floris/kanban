@@ -24,5 +24,7 @@ namespace KNBNDesktopUI.Views
         {
             InitializeComponent();
         }
+
+
     }
 }

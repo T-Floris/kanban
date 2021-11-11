@@ -107,7 +107,7 @@ namespace KNBNApi.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("Admin/AddUsersToGroup")]
-        public async Task<IActionResult> AddUsersToGroup(ControleGroupUserModel groupUser)
+        public IActionResult AddUsersToGroup(ControleGroupUserModel groupUser)
         {
 
             if (ModelState.IsValid)
@@ -117,7 +117,7 @@ namespace KNBNApi.Controllers
                     GroupId = groupUser.groupId,
                     UserId = groupUser.userId
                 };
-                
+
                 _groupData.AddUsersToGroup(gu);
             }
             return Ok();
@@ -126,7 +126,7 @@ namespace KNBNApi.Controllers
         [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("Admin/RemoveUsersFromGroup/{groupId}/{userId}")]
-        public async Task<IActionResult> RemoveUserFromGroup(int groupId, string userId)
+        public IActionResult RemoveUserFromGroup(int groupId, string userId)
         {
             if (ModelState.IsValid)
             {
@@ -160,7 +160,34 @@ namespace KNBNApi.Controllers
 
         #endregion
 
+        #region Search user in group
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/SearchUserInGroup/{groupId}/{username}")]
+        public List<UserModel> SearchUserInGroup(int groupId, string username)
+        {
+            var users = _groupData.SearchUserInGroup(groupId, username);
+           return users;
+        }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/SearchUser/{groupId}/{username}")]
+        public List<UserModel> SearchUserNotInGroup(int groupId, string username)
+        {
+            var users = _groupData.SearchUserNotInGroup(groupId, username);
+            return users;
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/SearchGroup/{groupName}")]
+        public List<GroupModel> SearchGroup(string groupName)
+        {
+            var users = _groupData.SearchGroup(groupName);
+            return users;
+        }
+        #endregion
 
     }
 }
