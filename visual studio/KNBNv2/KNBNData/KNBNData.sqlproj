@@ -63,9 +63,6 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures\User" />
     <Folder Include="dbo\Stored Procedures\Group" />
-    <Folder Include="dbo\Stored Procedures\Board" />
-    <Folder Include="dbo\Stored Procedures\Permission" />
-    <Folder Include="dbo\Stored Procedures\Table" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
@@ -81,27 +78,25 @@
     <Build Include="dbo\Stored Procedures\User\spUser_Insert.sql" />
     <Build Include="dbo\Stored Procedures\User\spUser_Lookup.sql" />
     <Build Include="dbo\Stored Procedures\User\spUserEmail_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Permission\spPermission_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\Permission\spPermission_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Permission\spPermission_Delete.sql" />
-    <Build Include="dbo\Stored Procedures\Permission\spPermission_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\Table\spTable_Delete.sql" />
-    <Build Include="dbo\Stored Procedures\Table\spTable_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\Table\spTable_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\Table\spTable_Update.sql" />
-    <Build Include="dbo\Stored Procedures\Board\spBord_Delete.sql" />
-    <Build Include="dbo\Stored Procedures\Board\spBord_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\Board\spBord_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\Board\spBord_Update.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Delete.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Insert.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroup_Update.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroup_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroup_Users.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Delete.sql" />
+    <Build Include="dbo\Tables\GroupPermisson.sql" />
+    <Build Include="dbo\Tables\GPGroupUser.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Lookup.sql" />
+    <Build Include="dbo\Stored Procedures\Group\spGroup_User_Lookup.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\KNBNData.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="KNBNData.refactorlog" />
   </ItemGroup>
 </Project>

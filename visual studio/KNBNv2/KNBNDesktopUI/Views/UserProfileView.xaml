@@ -24,11 +24,13 @@
                    HorizontalAlignment="Center" FontSize="50" FontFamily="Segoe UI Light">
             User profile
         </TextBlock>
+        <!--
         <Ellipse Grid.Row="1" Height="100" Width="100">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="{Binding Image}"/>
             </Ellipse.Fill>
         </Ellipse>
+        -->
         <TextBlock HorizontalAlignment="Center" FontSize="20" FontFamily="Segoe UI Light" Text="{Binding UserName}"/>
 
         <TextBlock Grid.Row="2" Text="{Binding Id}"/>

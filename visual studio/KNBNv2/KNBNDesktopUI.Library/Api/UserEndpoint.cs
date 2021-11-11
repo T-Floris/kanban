@@ -48,6 +48,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
+
         public async Task AddUserToRole(string userId, string roleName)
         {
             var data = new { userId, roleName };
