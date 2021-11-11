@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
+
+import Sidebar from "../components/Sidebar";
 
 const SigninPage = () => {
-    return (
-        <div>
-            <h1>Sign in page</h1>
-        </div>
-    )
-}
+  const [isOpen, setIsOpen] = useState(false);
 
-export default SigninPage
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+  return (
+    <div>
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Navbar toggle={toggle} />
+    
+    </div>
+  );
+};
+
+export default SigninPage;
