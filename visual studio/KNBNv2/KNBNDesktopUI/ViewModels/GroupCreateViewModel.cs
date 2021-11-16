@@ -62,7 +62,7 @@ namespace KNBNDesktopUI.ViewModels
 
             try
             {
-                //await _groupEndpoint.CreateGroup(group);
+                await _groupEndpoint.CreateGroup(group);
                 await _events.PublishOnUIThreadAsync(new GroupEvent(), new CancellationToken());
             }
             catch (Exception)

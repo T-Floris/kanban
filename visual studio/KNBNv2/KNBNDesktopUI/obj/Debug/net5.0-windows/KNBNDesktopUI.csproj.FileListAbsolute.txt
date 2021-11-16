@@ -223,4 +223,6 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupView.baml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupCreateView.g.cs
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupCreateView.baml
+C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupUserPermisionView.g.cs
+C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupUserPermisionView.baml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.csproj.CopyComplete

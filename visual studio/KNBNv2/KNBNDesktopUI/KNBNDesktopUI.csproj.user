@@ -13,6 +13,9 @@
     <Compile Update="Views\GroupCreateView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\GroupUserPermisionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\GroupView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\GroupCreateView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\GroupUserPermisionView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\GroupView.xaml">

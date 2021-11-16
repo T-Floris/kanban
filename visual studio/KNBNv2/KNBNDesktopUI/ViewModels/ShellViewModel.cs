@@ -154,6 +154,13 @@ namespace KNBNDesktopUI.ViewModels
             NotifyOfPropertyChange(() => IsLoggedOut);
         }
 
+        public async Task GroupPermision()
+        {
+            await ActivateItemAsync(IoC.Get<GroupUserPermisionViewModel>(), new CancellationToken());
+            NotifyOfPropertyChange(() => IsLoggedIn);
+            NotifyOfPropertyChange(() => IsLoggedOut);
+        }
+
         /*
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {

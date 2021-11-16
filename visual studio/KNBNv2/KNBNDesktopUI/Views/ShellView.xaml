@@ -22,8 +22,12 @@
             </MenuItem>
             <MenuItem x:Name="Workspaces" Header="_Workspaces" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}"/>
             <MenuItem Header="_Group" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
-                <MenuItem x:Name="GroupManagement" Header="Group_Management" Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                <MenuItem x:Name="CreateGroup" Header="Create_Group"/>
+                <MenuItem x:Name="GroupManagement" Header="Group _Management" Visibility="{Binding IsAdmin, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                <MenuItem x:Name="CreateGroup" Header="_Create Group"/>
+            </MenuItem>
+            <MenuItem Header="Group_Permision" Visibility="{Binding IsLoggedIn, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
+                <MenuItem x:Name="CreateGroupPermision" Header="_Create permision"/>
+                <MenuItem x:Name="GroupPermision" Header="Permision _Management"/>
             </MenuItem>
 
         </Menu>

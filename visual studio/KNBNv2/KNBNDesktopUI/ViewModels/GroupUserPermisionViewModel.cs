@@ -1,4 +1,6 @@
 ﻿using Caliburn.Micro;
+using KNBNDesktopUI.Library.Api;
+using KNBNDesktopUI.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,13 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using KNBNDesktopUI.Library.Api;
-using KNBNDesktopUI.Library.Models;
-using KNBNDesktopUI.Views;
 
 namespace KNBNDesktopUI.ViewModels
 {
-    public class GroupViewModel : Screen
+    public class GroupUserPermisionViewModel : Screen
     {
         private readonly StatusInfoViewModel _status;
         private readonly IWindowManager _window;
@@ -21,14 +20,13 @@ namespace KNBNDesktopUI.ViewModels
         private readonly IGroupEndpoint _groupEndpoint;
 
 
-        public GroupViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
+        public GroupUserPermisionViewModel(StatusInfoViewModel status, IWindowManager window, IUserEndpoint userEndpoint, IGroupEndpoint groupEndpoint)
         {
             _status = status;
             _window = window;
             _userEndpoint = userEndpoint;
             _groupEndpoint = groupEndpoint;
         }
-        
 
         //run when the viwe is loadet
         protected override async void OnViewLoaded(object view)
@@ -38,7 +36,7 @@ namespace KNBNDesktopUI.ViewModels
             try
             {
                 await LoadGroups();
-                
+
             }
             catch (Exception ex)
             {
@@ -65,8 +63,6 @@ namespace KNBNDesktopUI.ViewModels
             }
         }
 
-
-        
         // Load all groups, and run on load
         private async Task LoadGroups()
         {
@@ -93,15 +89,16 @@ namespace KNBNDesktopUI.ViewModels
         private BindingList<GroupModel> _groups;
         public BindingList<GroupModel> Groups
         {
-            get 
-            { 
-                return _groups; 
+            get
+            {
+                return _groups;
             }
             set
             {
                 _groups = value;
                 NotifyOfPropertyChange(() => Groups);
-                
+                NotifyOfPropertyChange(() => SelectedGroupName);
+
             }
         }
 
@@ -123,12 +120,12 @@ namespace KNBNDesktopUI.ViewModels
                 {
                     SelectedGroupName = "";
                 }
-                
+
 
                 _ = LoadUsers();
 
                 NotifyOfPropertyChange(() => SelectedGroup);
-                
+
             }
         }
 
@@ -161,11 +158,11 @@ namespace KNBNDesktopUI.ViewModels
 
         public BindingList<UserModel> UsersInGroup
         {
-            get 
-            { 
-                return _usersInGroup; 
+            get
+            {
+                return _usersInGroup;
             }
-            set 
+            set
             {
                 _usersInGroup = value;
                 NotifyOfPropertyChange(() => UsersInGroup);
@@ -177,7 +174,7 @@ namespace KNBNDesktopUI.ViewModels
         #region Load in all users not in selecte group
         private BindingList<UserModel> _users;
 
-        public BindingList<UserModel> Users 
+        public BindingList<UserModel> Users
         {
             get { return _users; }
             set
@@ -195,14 +192,16 @@ namespace KNBNDesktopUI.ViewModels
 
         public string GroupName
         {
-            get 
-            { 
+            get
+            {
+                _ = SearchGroupName();
                 return _groupName;
             }
-            set 
-            { 
+            set
+            {
                 _groupName = value;
                 NotifyOfPropertyChange(() => GroupName);
+                _ = SearchGroupName();
             }
         }
 
@@ -212,6 +211,75 @@ namespace KNBNDesktopUI.ViewModels
 
         #endregion
 
+        #region group-User edditer
+
+        private UserModel _selectedUsersInGroup;
+
+        public UserModel SelectedUsersInGroup
+        {
+            get { return _selectedUsersInGroup; }
+            set
+            {
+                _selectedUsersInGroup = value;
+                NotifyOfPropertyChange(() => SelectedUsersInGroup);
+            }
+        }
+
+        // Search function
+        #region groupMember Search
+        private string _groupMamperName;
+
+        public string GroupMamperName
+        {
+            get { return _groupMamperName; }
+            set
+            {
+                _groupMamperName = value;
+                NotifyOfPropertyChange(() => GroupMamperName);
+                _ = SearchUserIngroup();
+            }
+        }
+        #endregion
+
+
+        public async Task RemoveFromGroup()
+        {
+
+            try
+            {
+                if (SelectedGroup != null && SelectedUsersInGroup != null)
+                {
+                    await _groupEndpoint.RemoveUserFromGroup(SelectedGroup.Id, SelectedUsersInGroup.Id);
+                    _ = LoadUsers();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        /*public async Task SearchMemper()
+        {
+            try
+            {
+                //await _groupEndpoint.UserLookup(SelectedGroup.Id, "");
+
+                var userInGroup = await _groupEndpoint.UserInGroupLookup(SelectedGroup.Id, _groupMamperName);
+                UsersInGroup.Clear();
+                UsersInGroup = new BindingList<UserModel>(userInGroup);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        */
+
+        #endregion
 
         #region User edditer
 
@@ -220,7 +288,7 @@ namespace KNBNDesktopUI.ViewModels
         public UserModel SelectedUser
         {
             get { return _selectedUser; }
-            set 
+            set
             {
                 _selectedUser = value;
                 NotifyOfPropertyChange(() => SelectedUser);
@@ -232,10 +300,11 @@ namespace KNBNDesktopUI.ViewModels
         public string UserName
         {
             get { return _userName; }
-            set 
-            { 
+            set
+            {
                 _userName = value;
                 NotifyOfPropertyChange(() => UserName);
+                _ = SearchUserNotIngroup();
             }
         }
 
@@ -267,37 +336,123 @@ namespace KNBNDesktopUI.ViewModels
 
 
 
-
-
-
-
-
-        /*
-
-        //TODO Get all users in selected group
-
-
-
-        //TODO Get all users not in selected group
-        private BindingList<string> _availableUsers = new BindingList<string>();
-
-        public BindingList<string> AvailableUsers
+        #region all Search function
+        private async Task SearchGroupName()
         {
-            get { return _availableUsers; }
-            set
+            var getGroup = await _groupEndpoint.GroupLookup(_groupName);
+            if (Groups is not null)
             {
-                _availableUsers = value;
-                NotifyOfPropertyChange(() => AvailableUsers);
+                Groups.Clear();
+            }
+            if (UsersInGroup is not null)
+            {
+                UsersInGroup.Clear();
+            }
+            if (Users is not null)
+            {
+                Users.Clear();
             }
 
+            //Groups.SelectMany(x => x.Name.Contains(_groupName));// .Where(x => x.Name.Contains(_groupName));// .Select(x => x.Name).ToList();
+            Groups = new BindingList<GroupModel>(getGroup);
+        }
+
+        private async Task SearchUserIngroup()
+        {
+            var getUserInGroup = await _groupEndpoint.UserInGroupLookup(SelectedGroup.Id, _groupMamperName);
+            UsersInGroup.Clear();
+            UsersInGroup = new BindingList<UserModel>(getUserInGroup);
+        }
+
+        private async Task SearchUserNotIngroup()
+        {
+            var getUserNotInGroup = await _groupEndpoint.UserNotInGroupLookup(SelectedGroup.Id, _userName);
+            Users.Clear();
+            Users = new BindingList<UserModel>(getUserNotInGroup);
         }
 
 
-
-
         #endregion
-        */
 
-        /* SQL CALL ON LOAD*/
+
+        //public async Task gf()
+        //{
+        //    dynamic settings = new ExpandoObject();
+        //    settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+        //    settings.ResizeMode = ResizeMode.NoResize;
+        //    settings.Title = "System Error";
+        //    _status.UpdateMessage("", "You shall not passed!");
+        //    await _window.ShowDialogAsync(_status, null, settings);
+
+
+        //}
+
+        //private string _selectedGroupName;
+
+        //public string SelectedGroupName
+        //{
+        //    get { return _selectedGroupName; }
+        //    set
+        //    {
+        //        _selectedGroupName = value;
+        //        NotifyOfPropertyChange(() => SelectedGroupName);
+        //    }
+        //}
+
+        //// get the selected group and set it's name (SelectedGroupName)
+        //// and load in all users in the group and all not in the group
+        //private GroupModel _selectedGroup;
+        //public GroupModel SelectedGroup
+        //{
+        //    get { return _selectedGroup; }
+        //    set
+        //    {
+        //        _selectedGroup = value;
+        //        try
+        //        {
+        //            SelectedGroupName ??= value.Name;
+        //        }
+        //        catch (Exception)
+        //        {
+        //            SelectedGroupName = "";
+        //        }
+
+
+        //        //_ = LoadUsers();
+
+        //        NotifyOfPropertyChange(() => SelectedGroup);
+
+        //    }
+        //}
+
+
+        //private async Task LoadGroups()
+        //{
+        //    var groupList = await _groupEndpoint.GetAll();
+        //    Groups = new BindingList<GroupModel>(groupList);
+        //}
+
+        //private BindingList<GroupModel> _groups;
+        //public BindingList<GroupModel> Groups
+        //{
+        //    get
+        //    {
+        //        return _groups;
+        //    }
+        //    set
+        //    {
+        //        _groups = value;
+        //        NotifyOfPropertyChange(() => Groups);
+
+        //    }
+        //}
+
+
+
+
+
+
+
+
     }
 }
