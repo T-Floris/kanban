@@ -73,7 +73,7 @@ namespace KNBNDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => ErrorMessage);
             }
         }
-
+        
         public bool CanLogIn
         {
             get

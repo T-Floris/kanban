@@ -189,5 +189,15 @@ namespace KNBNApi.Controllers
         }
         #endregion
 
+        // Group permissons
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/GroupPermissions")]
+        public List<GroupPermisionModel> GetAllPermissions()
+        {
+            var permissions = _groupData.GetAllPermissions();
+            return permissions;
+        }
+
     }
 }

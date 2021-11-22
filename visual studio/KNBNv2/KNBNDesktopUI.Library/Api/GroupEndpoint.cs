@@ -209,7 +209,33 @@ namespace KNBNDesktopUI.Library.Api
         }
 
 
-
         #endregion
+        public async Task<List<GroupPermisionModel>> GetAllPermissions()
+        {
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GroupPermissions");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<List<GroupPermisionModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+        }
+
+        public async Task<string> GetUsersPermission()
+        {
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GroupPermissions");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<string>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+        }
     }
 }

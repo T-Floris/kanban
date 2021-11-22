@@ -188,7 +188,7 @@ namespace KNBNDesktopUI.ViewModels
 
                 case "LogOn":
                     //await ActivateItemAsync(IoC.Get<UserProfileViewModel>(), cancellationToken);
-                    await ActivateItemAsync(IoC.Get<GroupViewModel>(), cancellationToken);
+                    await ActivateItemAsync(IoC.Get<GroupUserPermisionViewModel>(), cancellationToken);
                     break;
                
                 case "Password":

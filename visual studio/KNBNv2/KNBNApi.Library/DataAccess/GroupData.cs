@@ -78,7 +78,7 @@ namespace KNBNApi.Library.DataAccess
 
         public List<UserModel> SearchUserNotInGroup(int groupId, string username)
         {
-            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroup_User_Lookup", new { groupId, username }, "KNBNData");
+            var output = _sql.LoadData<UserModel, dynamic>("dbo.spGroupUserNotIn_Lookup", new { groupId, username }, "KNBNData");
 
             return output;
         }
@@ -89,5 +89,16 @@ namespace KNBNApi.Library.DataAccess
 
             return output;
         }
+
+
+        // Group permission
+
+        public List<GroupPermisionModel> GetAllPermissions()
+        {
+            var output = _sql.LoadData<GroupPermisionModel, dynamic>("dbo.spGroupPermisson_GetAll", new { }, "KNBNData");
+            
+            return output;
+        }
+
     }
 }

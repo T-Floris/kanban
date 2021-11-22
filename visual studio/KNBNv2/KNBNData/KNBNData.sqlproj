@@ -63,6 +63,9 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Stored Procedures\User" />
     <Folder Include="dbo\Stored Procedures\Group" />
+    <Folder Include="dbo\Stored Procedures\Group\GroupPermisson" />
+    <Folder Include="dbo\Stored Procedures\Group\GroupUser" />
+    <Folder Include="dbo\Stored Procedures\Group\GroupUserPermission" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
@@ -82,13 +85,15 @@
     <Build Include="dbo\Stored Procedures\Group\spGroup_Insert.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_Lookup.sql" />
     <Build Include="dbo\Stored Procedures\Group\spGroup_GetAll.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroup_Users.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Insert.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Delete.sql" />
     <Build Include="dbo\Tables\GroupPermisson.sql" />
     <Build Include="dbo\Tables\GPGroupUser.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroupUser_Lookup.sql" />
-    <Build Include="dbo\Stored Procedures\Group\spGroup_User_Lookup.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupPermisson\spGroupPermisson_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroupUser_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroupUser_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroupUser_Lookup.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroupUserNotIn_Lookup.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroup_Users.sql" />
+    <Build Include="dbo\Stored Procedures\Group\GroupUserPermission\spGroupUserPermission_Get.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />

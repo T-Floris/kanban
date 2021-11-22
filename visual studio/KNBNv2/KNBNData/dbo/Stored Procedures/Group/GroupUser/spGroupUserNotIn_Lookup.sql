@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGroup_User_Lookup]
+﻿CREATE PROCEDURE [dbo].[spGroupUserNotIn_Lookup]
 	@groupId INT,
 	@username NVARCHAR(128)
 AS

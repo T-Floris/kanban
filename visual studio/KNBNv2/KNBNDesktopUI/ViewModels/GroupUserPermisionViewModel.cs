@@ -36,6 +36,7 @@ namespace KNBNDesktopUI.ViewModels
             try
             {
                 await LoadGroups();
+                await LoadUserPermision();
 
             }
             catch (Exception ex)
@@ -49,6 +50,7 @@ namespace KNBNDesktopUI.ViewModels
                 {
                     case "Unauthorized":
                         _status.UpdateMessage("Unauthorized Acces", "You shall not passed!");
+
                         await _window.ShowDialogAsync(_status, null, settings);
                         break;
 
@@ -84,6 +86,13 @@ namespace KNBNDesktopUI.ViewModels
         }
 
 
+        private async Task LoadUserPermision()
+        {
+            var userPermision = await _groupEndpoint.GetAllPermissions();
+            GroupPermission = new BindingList<GroupPermisionModel>(userPermision);
+        }
+
+
         #region Load in all Groups in database
         // load in all group to select
         private BindingList<GroupModel> _groups;
@@ -115,6 +124,7 @@ namespace KNBNDesktopUI.ViewModels
                 try
                 {
                     SelectedGroupName = value.Name;
+                    SelectedUsersPermision = "";
                 }
                 catch (Exception)
                 {
@@ -123,8 +133,10 @@ namespace KNBNDesktopUI.ViewModels
 
 
                 _ = LoadUsers();
+                // _ = LoadUserPermision();
 
                 NotifyOfPropertyChange(() => SelectedGroup);
+                NotifyOfPropertyChange(() => SelectedUsersPermision);
 
             }
         }
@@ -185,6 +197,20 @@ namespace KNBNDesktopUI.ViewModels
         }
         #endregion
 
+        private BindingList<GroupPermisionModel> _groupPermission;
+
+        public BindingList<GroupPermisionModel> GroupPermission
+        {
+            get { return _groupPermission; }
+            set
+            {
+                _groupPermission = value;
+                NotifyOfPropertyChange(() => GroupPermission);
+                NotifyOfPropertyChange(() => SelectedGroupPermission);
+            }
+        }
+
+
 
         #region group edditer
 
@@ -221,8 +247,21 @@ namespace KNBNDesktopUI.ViewModels
             set
             {
                 _selectedUsersInGroup = value;
+                // TODO Get users permission
                 NotifyOfPropertyChange(() => SelectedUsersInGroup);
+                if (SelectedGroup != null  && SelectedUsersInGroup != null)
+                {
+                    SelectedUsersPermision = GetUserPermission(SelectedGroup.Id, SelectedUsersInGroup.Id); 
+                }
+                NotifyOfPropertyChange(() => SelectedUsersPermision);
             }
+        }
+
+        public string GetUserPermission(int groupId, string userId)
+        {
+            //string tt = await _groupEndpoint.
+
+            return "test";
         }
 
         // Search function
@@ -304,7 +343,6 @@ namespace KNBNDesktopUI.ViewModels
             {
                 _userName = value;
                 NotifyOfPropertyChange(() => UserName);
-                _ = SearchUserNotIngroup();
             }
         }
 
@@ -324,16 +362,7 @@ namespace KNBNDesktopUI.ViewModels
                 throw;
             }
         }
-        /*
-        public async Task SearchUser()
-        {
-            var user = await _groupEndpoint.UserNotInGroupLookup(SelectedGroup.Id, _groupMamperName);
-            UsersInGroup.Clear();
-            UsersInGroup = new BindingList<UserModel>(user);
-        }
-        */
         #endregion
-
 
 
         #region all Search function
@@ -363,16 +392,63 @@ namespace KNBNDesktopUI.ViewModels
             UsersInGroup.Clear();
             UsersInGroup = new BindingList<UserModel>(getUserInGroup);
         }
+        #endregion
 
-        private async Task SearchUserNotIngroup()
+
+
+        private GroupPermisionModel _selectedGroupPermission;
+        public GroupPermisionModel SelectedGroupPermission
         {
-            var getUserNotInGroup = await _groupEndpoint.UserNotInGroupLookup(SelectedGroup.Id, _userName);
-            Users.Clear();
-            Users = new BindingList<UserModel>(getUserNotInGroup);
+            get { return _selectedGroupPermission; }
+            set
+            {
+                _selectedGroupPermission = value;
+                PrmisionInfo = value.Description;
+
+            }
         }
 
 
-        #endregion
+        /*
+
+        private BindingList<GroupPermisionModel> _groupPermission;
+
+        public BindingList<GroupPermisionModel> GroupPermission
+        {
+            get { return _groupPermission; }
+            set { _groupPermission = value; }
+        }
+
+        */
+
+        private string _prmisionInfo;
+
+        public string PrmisionInfo
+        {
+            get { return _prmisionInfo; }
+            set
+            {
+                _prmisionInfo = value;
+                NotifyOfPropertyChange(() => PrmisionInfo);
+            }
+        }
+
+
+
+        private string _selectedUsersPermision;
+
+        public string SelectedUsersPermision
+        {
+            get { return _selectedUsersPermision; }
+            set
+            {
+                _selectedUsersPermision = value;
+                NotifyOfPropertyChange(() => SelectedUsersPermision);
+            }
+        }
+
+
+
 
 
         //public async Task gf()
@@ -383,76 +459,6 @@ namespace KNBNDesktopUI.ViewModels
         //    settings.Title = "System Error";
         //    _status.UpdateMessage("", "You shall not passed!");
         //    await _window.ShowDialogAsync(_status, null, settings);
-
-
         //}
-
-        //private string _selectedGroupName;
-
-        //public string SelectedGroupName
-        //{
-        //    get { return _selectedGroupName; }
-        //    set
-        //    {
-        //        _selectedGroupName = value;
-        //        NotifyOfPropertyChange(() => SelectedGroupName);
-        //    }
-        //}
-
-        //// get the selected group and set it's name (SelectedGroupName)
-        //// and load in all users in the group and all not in the group
-        //private GroupModel _selectedGroup;
-        //public GroupModel SelectedGroup
-        //{
-        //    get { return _selectedGroup; }
-        //    set
-        //    {
-        //        _selectedGroup = value;
-        //        try
-        //        {
-        //            SelectedGroupName ??= value.Name;
-        //        }
-        //        catch (Exception)
-        //        {
-        //            SelectedGroupName = "";
-        //        }
-
-
-        //        //_ = LoadUsers();
-
-        //        NotifyOfPropertyChange(() => SelectedGroup);
-
-        //    }
-        //}
-
-
-        //private async Task LoadGroups()
-        //{
-        //    var groupList = await _groupEndpoint.GetAll();
-        //    Groups = new BindingList<GroupModel>(groupList);
-        //}
-
-        //private BindingList<GroupModel> _groups;
-        //public BindingList<GroupModel> Groups
-        //{
-        //    get
-        //    {
-        //        return _groups;
-        //    }
-        //    set
-        //    {
-        //        _groups = value;
-        //        NotifyOfPropertyChange(() => Groups);
-
-        //    }
-        //}
-
-
-
-
-
-
-
-
     }
 }

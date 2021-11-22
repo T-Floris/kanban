@@ -37,5 +37,11 @@ namespace KNBNDesktopUI.Library.Api
         Task<List<GroupModel>> GroupLookup(string groupName);
 
         #endregion
+
+        // group permission
+
+        Task<List<GroupPermisionModel>> GetAllPermissions();
+
+        Task<string> GetUsersPermission();
     }
 }
