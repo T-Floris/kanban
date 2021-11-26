@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KNBNApi.Library.DataAccess
 {
-    internal interface ITableData
+    public interface ITableData
     {
     }
 }

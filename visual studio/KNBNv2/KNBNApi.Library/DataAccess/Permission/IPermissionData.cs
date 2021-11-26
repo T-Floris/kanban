@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KNBNApi.Library.DataAccess.Permission
+namespace KNBNApi.Library.DataAccess
 {
-    internal interface IPermissionData
+    public interface IPermissionData
     {
     }
 }
