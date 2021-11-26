@@ -34,6 +34,42 @@ const initialState = [
         id: `card-${4}`,
         text: "Text test something4",
       },
+      {
+        id: `card-${5}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${6}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${7}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${8}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${9}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${10}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${11}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${12}`,
+        text: "Text test something4",
+      },
+      {
+        id: `card-${13}`,
+        text: "Text test something4",
+      },
     ],
   },
 ];
@@ -76,7 +112,7 @@ const listsReducer = (state = initialState, action) => {
         droppableIdEnd,
         droppableIndexEnd,
         droppableIndexStart,
-        draggableId,
+        // draggableId,
         type,
       } = action.payload;
       const newState = [...state];
