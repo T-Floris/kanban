@@ -84,7 +84,6 @@ namespace KNBNDesktopUI.ViewModels
                 UsersInGroup = new BindingList<UserModel>(userInGroupList);
                 Users = new BindingList<UserModel>(UserNotInGroupList);
             }
-
         }
 
 
@@ -211,7 +210,6 @@ namespace KNBNDesktopUI.ViewModels
 
 
         #endregion
-
 
         #region User edditer
 

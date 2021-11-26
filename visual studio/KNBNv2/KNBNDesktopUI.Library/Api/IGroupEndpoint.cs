@@ -42,6 +42,6 @@ namespace KNBNDesktopUI.Library.Api
 
         Task<List<GroupPermisionModel>> GetAllPermissions();
 
-        Task<string> GetUsersPermission();
+        Task<List<GroupUserPermissionModel>> GetUsersPermission(int groupId, string userId);
     }
 }

@@ -8399,21 +8399,19 @@
   },
   "packageFolders": {
     "C:\\Users\\tifl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
+      "projectUniqueName": "C:\\Users\\tifl\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
       "projectName": "KNBNDesktopUI",
-      "projectPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
+      "projectPath": "C:\\Users\\tifl\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\KNBNDesktopUI.csproj",
       "packagesPath": "C:\\Users\\tifl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\obj\\",
+      "outputPath": "C:\\Users\\tifl\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\tifl\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8431,8 +8429,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj": {
-              "projectPath": "C:\\Users\\tifl\\Desktop\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj"
+            "C:\\Users\\tifl\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj": {
+              "projectPath": "C:\\Users\\tifl\\Desktop\\GitHub\\kanban\\visual studio\\KNBNv2\\KNBNDesktopUI.Library\\KNBNDesktopUI.Library.csproj"
             }
           }
         }
@@ -8482,7 +8480,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

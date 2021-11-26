@@ -6,6 +6,6 @@ begin
 	set nocount on;
 
 	SELECT *
-	FROM [GPGroupUser], [GroupPermisson]
+	FROM [GPGroupUser]
 	WHERE [GPGroupUser].[GroupId] = @groupId AND [GPGroupUser].[UserId] = @userId
 END

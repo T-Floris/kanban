@@ -99,9 +99,9 @@
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="PublishLocations\KNBNData.publish.xml" />
+    <RefactorLog Include="KNBNData.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="KNBNData.refactorlog" />
+    <None Include="PublishLocations\KNBNData.publish.xml" />
   </ItemGroup>
 </Project>

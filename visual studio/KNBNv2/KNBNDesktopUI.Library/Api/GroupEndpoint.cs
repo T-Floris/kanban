@@ -25,12 +25,10 @@ namespace KNBNDesktopUI.Library.Api
                 model.Color
             };
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("api/Group/Admin/CreateGroup", data))
+            using HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("api/Group/Admin/CreateGroup", data);
+            if (response.IsSuccessStatusCode == false)
             {
-                if (response.IsSuccessStatusCode == false)
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
@@ -74,34 +72,30 @@ namespace KNBNDesktopUI.Library.Api
         public async Task<List<UserModel>> GetAllUsersInGroup(int groupId)
         {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/1"))
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/1");
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                var result = await response.Content.ReadAsAsync<List<UserModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
         public async Task<List<UserModel>> GetAllUsersNotInGroup(int groupId)
         {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/0"))
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/0");
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                var result = await response.Content.ReadAsAsync<List<UserModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
@@ -115,17 +109,16 @@ namespace KNBNDesktopUI.Library.Api
             {
                 username = "%";
             }
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchUserInGroup/" + groupId + "/" + username))
+            
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchUserInGroup/" + groupId + "/" + username);
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                var result = await response.Content.ReadAsAsync<List<UserModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
@@ -135,17 +128,16 @@ namespace KNBNDesktopUI.Library.Api
             {
                 username = "%";
             }
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchUser/" + groupId + "/" + username))
+            
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchUser/" + groupId + "/" + username);
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                var result = await response.Content.ReadAsAsync<List<UserModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
@@ -155,18 +147,16 @@ namespace KNBNDesktopUI.Library.Api
             {
                 groupName = "%";
             }
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchGroup/" + groupName))
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/SearchGroup/" + groupName);
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<GroupModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }        
+                var result = await response.Content.ReadAsAsync<List<GroupModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
         }
         
         #endregion
@@ -175,14 +165,10 @@ namespace KNBNDesktopUI.Library.Api
 
         public async Task RemoveUserFromGroup(int groupId, string userId)
         {
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUsersFromGroup/" + groupId + "/" + userId))
+            using HttpResponseMessage response = await _apiHelper.ApiClient.DeleteAsync("/api/Group/Admin/RemoveUsersFromGroup/" + groupId + "/" + userId);
+            if (response.IsSuccessStatusCode == false)
             {
-                if (response.IsSuccessStatusCode == false)
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-
-
+                throw new Exception(response.ReasonPhrase);
             }
 
         }
@@ -193,18 +179,16 @@ namespace KNBNDesktopUI.Library.Api
                 groupId,
                 userId
             };
-            
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUsersToGroup/", date))
+
+            using HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync("/api/Group/Admin/AddUsersToGroup/", date);
+            if (response.IsSuccessStatusCode)
             {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
             }
         }
 
@@ -224,12 +208,12 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
-        public async Task<string> GetUsersPermission()
+        public async Task<List<GroupUserPermissionModel>> GetUsersPermission(int groupId, string userId)
         {
-            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GroupPermissions");
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GroupPermissions/" + groupId + "/Users/" + userId);
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsAsync<string>();
+                var result = await response.Content.ReadAsAsync<List<GroupUserPermissionModel>>();
                 return result;
             }
             else

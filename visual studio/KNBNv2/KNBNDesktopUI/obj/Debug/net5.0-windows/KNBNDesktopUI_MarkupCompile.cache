@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\
+C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\
 KNBNDesktopUI
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml
+C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\App.xaml
 13-197278501
 
 37835353441
-231-777826273
+231934110900
 Views\EmailView.xaml;Views\GroupCreateView.xaml;Views\GroupUserPermisionView.xaml;Views\GroupView.xaml;Views\LoginView.xaml;Views\PasswordView.xaml;Views\RegisterView.xaml;Views\ShellView.xaml;Views\StatusInfoView.xaml;Views\UserDisplayView.xaml;Views\UserNameView.xaml;Views\UserProfileView.xaml;Views\WorkspacesView.xaml;
 
 False

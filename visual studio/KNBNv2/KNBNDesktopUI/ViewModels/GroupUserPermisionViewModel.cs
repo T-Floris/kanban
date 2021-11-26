@@ -125,6 +125,7 @@ namespace KNBNDesktopUI.ViewModels
                 {
                     SelectedGroupName = value.Name;
                     SelectedUsersPermision = "";
+                    
                 }
                 catch (Exception)
                 {
@@ -247,22 +248,27 @@ namespace KNBNDesktopUI.ViewModels
             set
             {
                 _selectedUsersInGroup = value;
+                //var su = GetUserPermission(SelectedGroup.Id, SelectedUsersInGroup.Id);
+
+
                 // TODO Get users permission
                 NotifyOfPropertyChange(() => SelectedUsersInGroup);
                 if (SelectedGroup != null  && SelectedUsersInGroup != null)
                 {
-                    SelectedUsersPermision = GetUserPermission(SelectedGroup.Id, SelectedUsersInGroup.Id); 
+                    SelectedUsersPermision = value.UserName; //su.Title; //value.FirstName; // ""; //su.Result.Title;
                 }
                 NotifyOfPropertyChange(() => SelectedUsersPermision);
             }
         }
 
-        public string GetUserPermission(int groupId, string userId)
+        
+        public GroupUserPermissionModel GetUserPermission(int groupId, string userId)
         {
-            //string tt = await _groupEndpoint.
+            var tt = _groupEndpoint.GetUsersPermission(groupId, userId);
 
-            return "test";
+            return tt.Result.FirstOrDefault();
         }
+        
 
         // Search function
         #region groupMember Search

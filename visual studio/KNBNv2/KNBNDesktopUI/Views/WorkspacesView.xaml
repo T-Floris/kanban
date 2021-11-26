@@ -7,17 +7,44 @@
              mc:Ignorable="d" Background="WhiteSmoke" FontSize="18"
              d:DesignHeight="425" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+        <!--<Window Grid.Row="1" Grid.Column="0" Margin="5">
+            <ScrollViewer>
+                
+            </ScrollViewer>
+        </Window>-->
 
-        </Grid.RowDefinitions>
+        <!--<StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <ScrollViewer>
 
-        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
-                        
-        </StackPanel>
+            </ScrollViewer>
+        </StackPanel>-->
+        <TextBlock />
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 10"
+                   HorizontalAlignment="Center" FontSize="64" FontFamily="Segoe UI Light" Text="Workspaces"/>
+        <ItemsControl x:Name="Boards" Grid.Row="1" Grid.Column="0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>                    
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <StackPanel Orientation="Vertical" Width="250" Height="100">
+                            <TextBlock Text="{Binding Id}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         
     </Grid>
 </UserControl>

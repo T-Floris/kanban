@@ -63,7 +63,7 @@ namespace KNBNApi.Controllers
                 if (true)
                 {
                     string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    var u = _userData.GetUserById(loggedInUserId);
+                    //var u = _userData.GetUserById(loggedInUserId);
                     
                     GroupModel group = new()
                     {
@@ -196,6 +196,15 @@ namespace KNBNApi.Controllers
         public List<GroupPermisionModel> GetAllPermissions()
         {
             var permissions = _groupData.GetAllPermissions();
+            return permissions;
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/GroupPermissions/{groupId}/Users/{userId}")]
+        public List<GroupUserPermissionModel> GetAllPermissions(int groupId, string userId)
+        {
+            var permissions = _groupData.GetUsersPermission(groupId, userId);
             return permissions;
         }
 

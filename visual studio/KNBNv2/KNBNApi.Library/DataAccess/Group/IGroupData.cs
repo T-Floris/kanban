@@ -32,5 +32,7 @@ namespace KNBNApi.Library.DataAccess
 
 
         List<GroupModel> GetGroupTitle(string Name);
+
+        List<GroupUserPermissionModel> GetUsersPermission(int groupId, string userId);
     }
 }

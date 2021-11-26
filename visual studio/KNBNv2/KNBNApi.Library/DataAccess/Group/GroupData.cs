@@ -100,5 +100,18 @@ namespace KNBNApi.Library.DataAccess
             return output;
         }
 
+        public List<GroupUserPermissionModel> GetUsersPermission(int groupId, string userId)
+        {
+            var output = _sql.LoadData<GroupUserPermissionModel, dynamic>("dbo.spGroupUserPermission_Get", new { groupId, userId }, "KNBNData");
+
+            if (output.Count == 0)
+            {
+
+                return new List<GroupUserPermissionModel>();
+            }
+
+            return output;
+        }
+
     }
 }
