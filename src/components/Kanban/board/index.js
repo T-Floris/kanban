@@ -11,6 +11,12 @@ const ListContainer = styled.div`
   flex-direction: row;
 `;
 
+const TitleH1 = styled.div`
+font-size: 2rem;
+  font-weight: bold;
+  margin-top:5%;
+`;
+
 class Board extends Component {
   onDragEnd = (result) => {
     //draggableId is the id on the container, source the index & when the dragging happens.
@@ -39,7 +45,7 @@ class Board extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="App">
-          <h1>test</h1>
+          <TitleH1>test</TitleH1>
           <Droppable droppableId="all-lists" direction="horizontal" type="list">
             {(provided) => (
               <ListContainer
