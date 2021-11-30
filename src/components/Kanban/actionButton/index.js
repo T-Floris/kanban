@@ -74,7 +74,8 @@ class TrelloActionButton extends React.Component {
           backgroundColor: buttonTextBackground,
         }}
       >
-        <Icon>add</Icon>
+        
+        <Icon>add</Icon> {/* Add + icon */}
         <p>{buttonText}</p>
       </div>
     );
@@ -123,7 +124,7 @@ class TrelloActionButton extends React.Component {
           >
             {buttonTitle}{" "}
           </Button>
-          <Icon style={{ marginLeft: 8, cursor: "pointer" }}>close</Icon>
+          <Icon style={{ marginLeft: 8, cursor: "pointer" }} onClick={this.closeForm}>close</Icon> {/* close X icon */}
         </div>
       </div>
     );
