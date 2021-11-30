@@ -8,16 +8,18 @@ import { addList, addCard } from "../../../redux/actions";
 
 class TrelloActionButton extends React.Component {
   state = {
-    formOpen: false,
-    text: "",
+    formOpen: false, //Textarea is not displayed till you click on add another card
+    text: "", //blank textarea til you insert something
   };
 
+  //open function
   openForm = () => {
     this.setState({
       formOpen: true,
     });
   };
 
+  //close function
   closeForm = (e) => {
     this.setState({
       formOpen: false,
@@ -31,6 +33,7 @@ class TrelloActionButton extends React.Component {
     });
   };
 
+  //add list function
   handleAddList = () => {
     const { dispatch } = this.props;
     const { text } = this.state;
@@ -44,6 +47,7 @@ class TrelloActionButton extends React.Component {
     }
   };
 
+  //add card function
   handleAddCard = () => {
     const { dispatch, listID } = this.props;
     const { text } = this.state;
@@ -56,6 +60,7 @@ class TrelloActionButton extends React.Component {
     }
   };
 
+  //display different state/text of button
   renderAddButton = () => {
     const { list } = this.props;
 
@@ -81,6 +86,7 @@ class TrelloActionButton extends React.Component {
     );
   };
 
+  //display different state/text in form/textarea
   renderForm = () => {
     const { list } = this.props;
 
