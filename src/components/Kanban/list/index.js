@@ -17,6 +17,11 @@ const CardContainer = styled.div`
   overflow-x: hidden; // hidding horizontal scroll
   max-height: 610px;
 `;
+const TitleH4 = styled.div`
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-bottom: 18px;
+`
 
 const TrelloList = ({ title, cards, listID, index }) => {
   console.log(cards);
@@ -31,7 +36,7 @@ const TrelloList = ({ title, cards, listID, index }) => {
           <Droppable droppableId={String(listID)}>
             {(provided) => (
               <div {...provided.droppableProps} ref={provided.innerRef}>
-                <h4>{title}</h4>
+                <TitleH4>{title}</TitleH4>
                 <CardContainer>
                   {cards.map((card, index) => (
                     <TrelloCard
