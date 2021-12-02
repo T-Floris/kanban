@@ -93,7 +93,7 @@ namespace KNBNDesktopUI.Library.Api
                 }
             }
         }
-        public async Task<UserModel> GetUser()
+        public async Task<UserModel> GetLogtOnUserId()
         {
             using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/User"))
             {

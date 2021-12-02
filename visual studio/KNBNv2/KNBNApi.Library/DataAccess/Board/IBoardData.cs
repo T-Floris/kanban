@@ -9,9 +9,45 @@ namespace KNBNApi.Library.DataAccess
 {
     public interface IBoardData
     {
-        /*
         // Create Board
-        void CreateGroup(BoardModel board);
+
+
+        #region GET commands
+        #region GET Board
+        List<BoardModel> GetAllBoards();
+        List<BoardModel> GetBoardById(int id);
+        #endregion
+
+        #region GET All Boards by owner
+        List<BoardModel> GetAllUsersBoards(string userId);
+
+
+        #endregion
+
+        #region GET All Board By Group is member of
+
+        #endregion
+
+        #endregion
+
+
+        #region POST commands
+        void BoardCreate(BoardModel board);
+
+
+        #endregion
+
+
+        #region PUT commands
+        void BoardUpdate(BoardModel board);
+
+        #endregion
+
+
+        #region DELETE commands
+        void BoardDelete(BoardModel board);
+        #endregion
+        /*
 
         #region Get boards and selected board
         

@@ -225,7 +225,6 @@ C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupCreateView.baml
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupUserPermisionView.g.cs
 C:\Users\tifl\Desktop\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\Views\GroupUserPermisionView.baml
-C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\bin\Debug\net5.0-windows\appsettings .Production.json
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\bin\Debug\net5.0-windows\appsettings.Development.json
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\bin\Debug\net5.0-windows\appsettings.json
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\bin\Debug\net5.0-windows\KNBNDesktopUI.exe
@@ -342,3 +341,4 @@ C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\ref\KNBNDesktopUI.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.pdb
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\obj\Debug\net5.0-windows\KNBNDesktopUI.genruntimeconfig.cache
+C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI\bin\Debug\net5.0-windows\appsettings.Production.json

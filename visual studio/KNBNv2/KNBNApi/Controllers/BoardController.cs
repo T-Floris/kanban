@@ -25,14 +25,16 @@ namespace KNBNApi.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IUserData _userData;
+        private readonly IBoardData _boardData;
         private readonly ILogger<BoardController> _logger;
 
 
-        public BoardController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<BoardController> logger, IGroupData groupData)
+        public BoardController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<BoardController> logger, IBoardData boardData)
         {
             _context = context;
             _userManager = userManager;
             _userData = userData;
+            _boardData = boardData;
             _logger = logger;
 
         }
@@ -62,12 +64,11 @@ namespace KNBNApi.Controllers
 
         #endregion
 
-        [Authorize(Roles = "admin")]
-        [HttpPost]
+        [HttpGet]
         [Route("Admin/GetAllBoards")]
         public List<BoardModel> GetAllBoards()
         {
-            var boards = new List<BoardModel>();
+            var boards = _boardData.GetAllBoards();
             return boards;
         }
 

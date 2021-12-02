@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KNBNDesktopUI.Library.Api
+namespace KNBNDesktopUI.Library.Models
 {
-    internal interface  IBoardEndpoint
+    public class BoardDeletModel
     {
     }
 }

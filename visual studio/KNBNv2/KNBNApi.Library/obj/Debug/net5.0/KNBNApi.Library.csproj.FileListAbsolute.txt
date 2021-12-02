@@ -26,7 +26,6 @@ C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Deb
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\ref\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\bin\Debug\net5.0\KNBNApi.Library.pdb
-C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.csproj.AssemblyReference.cache
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.AssemblyInfoInputs.cache
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.AssemblyInfo.cs
@@ -34,3 +33,4 @@ C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Deb
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\ref\KNBNApi.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.pdb
+C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNApi.Library\obj\Debug\net5.0\KNBNApi.Library.csproj.AssemblyReference.cache

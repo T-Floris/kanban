@@ -69,6 +69,7 @@ namespace KNBNDesktopUI
             _container.Instance(_container)
                 .PerRequest<IUserEndpoint, UserEndpoint>()
                 .PerRequest<IGroupEndpoint, GroupEndpoint>()
+                .PerRequest<IBoardEndpoint, BoardEndpoint>()
                 .PerRequest<GroupView>();
 
 

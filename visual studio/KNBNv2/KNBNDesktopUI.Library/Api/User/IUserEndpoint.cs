@@ -17,7 +17,7 @@ namespace KNBNDesktopUI.Library.Api
 
         Task DeleteUser(string Id);
         
-        Task<UserModel> GetUser();
+        Task<UserModel> GetLogtOnUserId();
         
         // Update
         Task UpdateUser(UpdateUserModel model);

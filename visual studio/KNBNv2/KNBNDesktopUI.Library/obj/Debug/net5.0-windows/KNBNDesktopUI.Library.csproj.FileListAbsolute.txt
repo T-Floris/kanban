@@ -26,7 +26,6 @@ C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\b
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\bin\Debug\net5.0-windows\KNBNDesktopUI.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\bin\Debug\net5.0-windows\ref\KNBNDesktopUI.Library.dll
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\bin\Debug\net5.0-windows\KNBNDesktopUI.Library.pdb
-C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\obj\Debug\net5.0-windows\KNBNDesktopUI.Library.csproj.AssemblyReference.cache
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\obj\Debug\net5.0-windows\KNBNDesktopUI.Library.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\obj\Debug\net5.0-windows\KNBNDesktopUI.Library.AssemblyInfoInputs.cache
 C:\Users\tifl\Desktop\GitHub\kanban\visual studio\KNBNv2\KNBNDesktopUI.Library\obj\Debug\net5.0-windows\KNBNDesktopUI.Library.AssemblyInfo.cs

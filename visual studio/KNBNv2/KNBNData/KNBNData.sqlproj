@@ -9,8 +9,7 @@
     <ProjectGuid>{132a9756-ae98-43b0-935e-c0eb12c2ddd9}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>KNBNData</RootNamespace>
     <AssemblyName>KNBNData</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -66,6 +64,9 @@
     <Folder Include="dbo\Stored Procedures\Group\GroupPermisson" />
     <Folder Include="dbo\Stored Procedures\Group\GroupUser" />
     <Folder Include="dbo\Stored Procedures\Group\GroupUserPermission" />
+    <Folder Include="dbo\Stored Procedures\Board" />
+    <Folder Include="dbo\Stored Procedures\Permission" />
+    <Folder Include="dbo\Stored Procedures\Table" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
@@ -94,6 +95,9 @@
     <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroupUserNotIn_Lookup.sql" />
     <Build Include="dbo\Stored Procedures\Group\GroupUser\spGroup_Users.sql" />
     <Build Include="dbo\Stored Procedures\Group\GroupUserPermission\spGroupUserPermission_Get.sql" />
+    <Build Include="dbo\Stored Procedures\Table\spTable_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Permission\spPermission_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Board\spBoard_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />

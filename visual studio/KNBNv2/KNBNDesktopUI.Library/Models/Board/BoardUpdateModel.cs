@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KNBNDesktopUI.Library.Models
 {
-    public class WorkspacesModel
+    public class BoardUpdateModel
     {
-        public int Id { get; set; }
+
     }
 }

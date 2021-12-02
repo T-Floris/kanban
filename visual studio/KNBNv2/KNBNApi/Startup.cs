@@ -47,6 +47,7 @@ namespace KNBNApi
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             services.AddTransient<IUserData, UserData>();
             services.AddTransient<IGroupData, GroupData>();
+            services.AddTransient<IBoardData, BoardData>();
 
             services.AddAuthentication(options =>
             {
