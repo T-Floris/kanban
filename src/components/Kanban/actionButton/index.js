@@ -128,7 +128,7 @@ class TrelloActionButton extends React.Component {
             variant="contained"
             style={{ color: "white", backgroundColor: "#5aac44" }}
           >
-            {buttonTitle}{" "}
+            {buttonTitle}
           </Button>
           <Icon style={{ marginLeft: 8, cursor: "pointer" }} onClick={this.closeForm}>close</Icon> {/* close X icon */}
         </div>
@@ -150,6 +150,7 @@ const styles = {
     height: 36,
     width: 272,
     paddingLeft: 10,
+    paddingRight: 272, //reason for adding this cuz when horizontal scroll is available the button is shrinked
   },
   formButtonGroup: {
     marginTop: 8,
