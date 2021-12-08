@@ -9,47 +9,115 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/> <!-- Board user is member of -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <!--<Window Grid.Row="1" Grid.Column="0" Margin="5">
-            <ScrollViewer>
-                
-            </ScrollViewer>
-        </Window>-->
+        
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 0 0 10" HorizontalAlignment="Center" FontSize="64" FontFamily="Segoe UI Light" Text="Workspaces"/>
 
-        <!--<StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
-            <ScrollViewer>
 
-            </ScrollViewer>
-        </StackPanel>-->
-        <TextBlock />
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0 0 0 10"
-                   HorizontalAlignment="Center" FontSize="64" FontFamily="Segoe UI Light" Text="Workspaces"/>
+
+
+
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="UserName" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <!-- Load In all the boards -->            
 
             <ItemsControl x:Name="Board" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+                
+                <!-- fill row and make a new line -->
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <VirtualizingStackPanel Orientation="Horizontal"/>
-
+                        <WrapPanel/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+
+                <!-- Make the ItemsControl scrollable -->
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+                <!-- Make The workspaces -->
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="10">
-                            <StackPanel Orientation="Vertical" Width="250" Height="125" Background="{Binding Color}">
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Id}"/>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding Name}"/>
-                            </StackPanel>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="5" Background="{Binding Color}">
+                            <Grid Width="350" Height="175" Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="30" FontWeight="Bold" Foreground="White"  HorizontalAlignment="Right" Text="{Binding Name}"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                
+            </ItemsControl>
+
+            <!--<separator verticalcontentalignment="stretch" grid.row="1" grid.column="1" borderthickness="2" foreground="black" background="black"/>-->
+            <Separator Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" BorderBrush="Black" BorderThickness=".5"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Member of Bord" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <ItemsControl x:Name="BoardMemberOf" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" >
+                
+                <!-- fill row and make a new line -->
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <!-- Make the ItemsControl scrollable -->
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+                <!-- Make The workspaces -->
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="5" Background="{Binding Color}">
+                            <Grid Width="350" Height="175" Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="1" FontSize="30" FontWeight="Bold" Foreground="White"  HorizontalAlignment="Left" Text="{Binding GroupId}"/>
+                                <TextBlock Grid.Row="1" Grid.Column="0" FontSize="30" FontWeight="Bold" Foreground="White"  HorizontalAlignment="Right" Text="{Binding BoardId}"/>
+                            </Grid>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
+        </Grid>
         
     </Grid>
 </UserControl>

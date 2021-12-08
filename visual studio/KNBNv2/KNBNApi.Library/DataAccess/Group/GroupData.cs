@@ -113,5 +113,11 @@ namespace KNBNApi.Library.DataAccess
             return output;
         }
 
+        public List<GroupModel> GetAllGroupUserIsIn(string userId)
+        {
+            var output = _sql.LoadData<GroupModel, dynamic>("dbo.spBoard_GetAllMemberOf", new { userId }, "KNBNData");
+
+            return output;
+        }
     }
 }

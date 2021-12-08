@@ -16,7 +16,9 @@ namespace KNBNDesktopUI.Library.Api
         //Get Comand
         #region GET
         Task<List<BoardModel>> GetAll();
-        Task<List<BoardModel>> GetBoards(string userId);
+        Task<List<BoardModel>> GetBoards(/*string userId*/);
+
+        Task<List<BoardModel>> GetBoardsMemberOf();
         //Task<List<BoardModel>> GetBoards(BoardCreateModel model);
 
         #endregion

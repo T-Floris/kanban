@@ -98,6 +98,9 @@
     <Build Include="dbo\Stored Procedures\Table\spTable_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Permission\spPermission_GetAll.sql" />
     <Build Include="dbo\Stored Procedures\Board\spBoard_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\Board\spBoard_GetAllUsers.sql" />
+    <Build Include="dbo\Stored Procedures\Board\spBoard_GetAllMemberOf.sql" />
+    <Build Include="dbo\Stored Procedures\Board\spBoard_ByGroupId.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Stored Procedures\User\spUser_Update.sql" />

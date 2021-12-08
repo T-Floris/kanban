@@ -26,16 +26,18 @@ namespace KNBNApi.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IUserData _userData;
         private readonly IBoardData _boardData;
+        private readonly IGroupData _groupData;
         private readonly ILogger<BoardController> _logger;
 
 
-        public BoardController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<BoardController> logger, IBoardData boardData)
+        public BoardController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IUserData userData, ILogger<BoardController> logger, IBoardData boardData, IGroupData groupData)
         {
             _context = context;
             _userManager = userManager;
             _userData = userData;
             _boardData = boardData;
             _logger = logger;
+            _groupData = groupData;
 
         }
 
@@ -70,6 +72,47 @@ namespace KNBNApi.Controllers
         {
             var boards = _boardData.GetAllBoards();
             return boards;
+
+        }
+
+        [HttpGet]
+        [Route("Admin/GetAllUsersBoards")]
+        public List<BoardModel> GetAllUsersBoards()
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var boards = _boardData.GetAllUsersBoards(userId);
+            return boards;
+
+        }
+
+
+        [HttpGet]
+        [Route("Admin/GetAllMemberOfBoards")]
+        public List<BoardModel> GetAllMemberOfBoards()
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            List<BoardModel> boardModels = new List<BoardModel>();
+
+            var groups = _groupData.GetAllGroupUserIsIn(userId);
+
+            foreach (var group in groups)
+            {
+                var boards = _boardData.GetAllBoardByGroup(group.GroupId);
+                foreach (var board in boards)
+                {
+                    boardModels.Add(new BoardModel() { BoardId = board.BoardId, Color = board.Color, GroupId = board.GroupId, Id = board.Id, Name = board.Name, UserId = board.UserId });
+                }
+
+                //boardModels.Add(new BoardModel() { GroupId = group.GroupId, BoardId = group.BoardId });
+
+            }
+
+             
+            //var boards = _boardData.GetAllUsersBoards(userId);
+            return boardModels;
+
         }
 
     }

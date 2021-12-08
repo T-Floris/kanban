@@ -16,6 +16,7 @@ namespace KNBNApi.Library.DataAccess
         List<UserModel> GetAllUsersToAdd(int groupId);
 
         List<UserModel> GetAllUsers(int groupId, int GetInGroup);
+        List<GroupModel> GetAllGroupUserIsIn(string userId);
 
         #region Search functions
         List<UserModel> SearchUserInGroup(int groupId, string username);

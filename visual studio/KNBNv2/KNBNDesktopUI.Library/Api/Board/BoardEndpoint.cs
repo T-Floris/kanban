@@ -37,15 +37,38 @@ namespace KNBNDesktopUI.Library.Api
             }
         }
 
-        public Task<List<BoardModel>> GetBoards(string userId)
+        public async Task<List<BoardModel>> GetBoards(/*string userId*/)
         {
-            throw new NotImplementedException();
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Board/Admin/GetAllUsersBoards");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<List<BoardModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+        }
+        public async Task<List<BoardModel>> GetBoardsMemberOf()
+        {
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Board/Admin/GetAllMemberOfBoards");
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<List<BoardModel>>();
+                return result;
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
         }
 
         public Task<List<BoardModel>> GetBoards(BoardCreateModel model)
         {
             throw new NotImplementedException();
         }
+
 
         public Task<BoardCreateModel> PostBoard(BoardCreateModel model)
         {

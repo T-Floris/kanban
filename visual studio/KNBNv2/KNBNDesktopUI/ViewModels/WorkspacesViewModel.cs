@@ -38,8 +38,9 @@ namespace KNBNDesktopUI.ViewModels
 
             try
             {
-                await LoadWorkspaces();
-
+                UserName = await GetUsernameAsync();
+                Board = await BoardOwner();
+                BoardMemberOf = await MemberOfBoard();
             }
             catch (Exception ex)
             {
@@ -67,14 +68,42 @@ namespace KNBNDesktopUI.ViewModels
         }
 
 
-        private async Task LoadWorkspaces()
-        {
-            var boarderList = await _boardEndpoint.GetAll();
-            Board = new BindingList<BoardModel>(boarderList);
-        }
-        
-         
 
+
+
+
+        #region user
+
+        private string _userName;
+
+        public string UserName
+        {
+            get { return _userName; }
+            set 
+            { 
+                _userName = value; 
+                NotifyOfPropertyChange(() => UserName);
+            }
+        }
+
+        private async Task<string> GetUsernameAsync()
+        {
+            var user = await _userEndpoint.GetLogtOnUserId();
+            if (user == null)
+                return "";
+            return user.UserName + "'s Workspace";            
+        }
+
+        #endregion
+
+
+
+        #region all board
+
+        private async Task<BindingList<BoardModel>> GetBoard()
+        {
+            return new BindingList<BoardModel>(await _boardEndpoint.GetAll());
+        }
 
         // load all users workspace
         private BindingList<BoardModel> _board;
@@ -87,7 +116,54 @@ namespace KNBNDesktopUI.ViewModels
                 _board = value;
                 NotifyOfPropertyChange(() => Board);
             }
-        } 
+        }
+
+        #endregion
+
+
+        #region all board user owen
+
+        private async Task<BindingList<BoardModel>> BoardOwner()
+        {
+            return new BindingList<BoardModel>(await _boardEndpoint.GetBoards());
+        }
+
+        private BindingList<BoardModel> _ownerOfBoard;
+
+        public BindingList<BoardModel> OwnerOfBoard
+        {
+            get { return _ownerOfBoard; }
+            set 
+            { 
+                _ownerOfBoard = value;
+                NotifyOfPropertyChange(() => OwnerOfBoard);
+            }
+        }
+
+        #endregion
+
+
+
+        #region all board user is member of
+
+        private async Task<BindingList<BoardModel>> MemberOfBoard()
+        {
+            return new BindingList<BoardModel>(await _boardEndpoint.GetBoardsMemberOf());
+        }
+        private BindingList<BoardModel> _boardMemberOf;
+
+        public BindingList<BoardModel> BoardMemberOf
+        {
+            get { return _boardMemberOf; }
+            set 
+            { 
+                _boardMemberOf = value;
+                NotifyOfPropertyChange(() => BoardMemberOf);
+            }
+        }
+
+        #endregion
+
 
 
 

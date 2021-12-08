@@ -25,6 +25,7 @@ namespace KNBNApi.Library.DataAccess
         #endregion
 
         #region GET All Board By Group is member of
+        List<BoardModel> GetAllBoardByGroup(int groupId);
 
         #endregion
 

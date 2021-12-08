@@ -37,6 +37,8 @@ namespace KNBNApi.Library.DataAccess
         {
             _sql.SaveData("dbo.spBoard_Update", new { board.Id, board.UserId, board.Name }, "KNBNData");
         }
+
+
         #endregion
 
         #region GET
@@ -49,7 +51,7 @@ namespace KNBNApi.Library.DataAccess
 
         public List<BoardModel> GetAllUsersBoards(string userId)
         {
-            var output = _sql.LoadData<BoardModel, dynamic>("dbo.spBoard_GetByUser", new { userId }, "KNBNData");
+            var output = _sql.LoadData<BoardModel, dynamic>("dbo.spBoard_GetAllUsers", new { userId }, "KNBNData");
 
             return output;
         }
@@ -60,6 +62,13 @@ namespace KNBNApi.Library.DataAccess
 
             return output;
 
+        }
+
+        public List<BoardModel> GetAllBoardByGroup(int groupId)
+        {
+            var output = _sql.LoadData<BoardModel, dynamic>("dbo.spBoard_ByGroupId", new { groupId }, "KNBNData");
+
+            return output;
         }
         #endregion
     }

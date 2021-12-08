@@ -208,5 +208,19 @@ namespace KNBNApi.Controllers
             return permissions;
         }
 
+        /*
+
+        [HttpGet]
+        [Route("Admin/GroupUserIsIn/Users/{userId}")]
+        public List<GroupModel> GetAllMemberOf(string userId)
+        {
+            var groupUserIsIn = _groupData.GetAllGroupUserIsIn(userId);
+            return groupUserIsIn;
+        }
+        */
+
+
+
+
     }
 }

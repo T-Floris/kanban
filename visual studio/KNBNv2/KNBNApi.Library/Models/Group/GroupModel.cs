@@ -14,6 +14,12 @@ namespace KNBNApi.Library.Models
             get; set;
         }
 
+        public int BoardId { get; set; }
+
+        public int GroupId { get; set; }
+
+
+
         public string UserName
         {
             get; set;
