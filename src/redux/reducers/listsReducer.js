@@ -103,6 +103,20 @@ const listsReducer = (state = initialState, action) => {
       return newState;
     }
 
+    case CONSTANTS.DELETE_CARD: {
+      console.log("Deleted card:", action.payload);
+      return state.map((list) => {
+        if (list.listID === action.payload.listID) {
+          return {
+            ...list,
+            cards: list.cards.filter(({ id }) => id !== action.payload.cardID),
+          };
+        } else {
+          return list;
+        }
+      });
+    }
+
     case CONSTANTS.DRAG_HAPPENED: {
       const {
         droppableIdStart,
