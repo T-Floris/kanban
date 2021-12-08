@@ -1,77 +1,73 @@
 import { CONSTANTS } from "../actions";
 
 let listID = 2;
-let cardID = 5;
+let cardID = 14;
 
 const initialState = [
   {
-    title: "Last Episode0",
+    title: "TODO",
     id: `list-${0}`,
     cards: [
       {
         id: `card-${0}`,
-        text: "Text test something0",
+        text: "Migrate Java code to Kotlin"
       },
       {
         id: `card-${1}`,
-        text: "Text test something1",
-      },
-    ],
+        text: "Refactor contracts"
+      }
+    ]
   },
   {
-    title: "Summer Episode1",
+    title: "DOING",
     id: `list-${1}`,
     cards: [
       {
         id: `card-${2}`,
-        text: "Text test something2",
+        text: "Front end integration with cordova"
       },
       {
         id: `card-${3}`,
-        text: "Text test something3",
-      },
+        text: "Use Cordova token sdk for settlement"
+      }
+    ]
+  },
+  {
+    title: "DONE",
+    id: `list-${2}`,
+    cards: [
       {
         id: `card-${4}`,
-        text: "Text test something4",
+        text: "Managing access control for node in flows"
       },
       {
         id: `card-${5}`,
-        text: "Text test something4",
+        text: "Issue #3 pushed to Git"
       },
       {
         id: `card-${6}`,
-        text: "Text test something4",
-      },
+        text: "Drag and drop added to third party"
+      }
+    ]
+  },
+  {
+    title: "REJECTED",
+    id: `list-${3}`,
+    cards: [
       {
         id: `card-${7}`,
-        text: "Text test something4",
+        text: "Issue #43 rejected due to stability"
       },
       {
         id: `card-${8}`,
-        text: "Text test something4",
+        text: "Token id replaced"
       },
       {
         id: `card-${9}`,
-        text: "Text test something4",
-      },
-      {
-        id: `card-${10}`,
-        text: "Text test something4",
-      },
-      {
-        id: `card-${11}`,
-        text: "Text test something4",
-      },
-      {
-        id: `card-${12}`,
-        text: "Text test something4",
-      },
-      {
-        id: `card-${13}`,
-        text: "Text test something4",
-      },
-    ],
-  },
+        text: "Downgraded v1.7 to v1.6"
+      }
+    ]
+  }
 ];
 
 const listsReducer = (state = initialState, action) => {
@@ -83,6 +79,7 @@ const listsReducer = (state = initialState, action) => {
         id: `list-${listID}`,
       };
       listID += 1;
+      console.log("Added list:", action.payload);
       return [...state, newList];
 
     case CONSTANTS.ADD_CARD: {
@@ -91,7 +88,7 @@ const listsReducer = (state = initialState, action) => {
         id: `card-${cardID}`,
       };
       cardID += 1;
-
+      console.log("Added card:", action.payload);
       const newState = state.map((list) => {
         if (list.id === action.payload.listID) {
           return {
@@ -119,6 +116,8 @@ const listsReducer = (state = initialState, action) => {
 
       //dragging lists around
       if (type === "list") {
+        console.log("Dragged a list:", action.payload);
+        
         const list = newState.splice(droppableIndexStart, 1);
         newState.splice(droppableIndexEnd, 0, ...list);
         return newState;
