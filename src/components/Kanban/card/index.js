@@ -26,7 +26,7 @@ const TrelloCard = ({ text, id, index, dispatch, listID }) => {
           <Card>
             <CardContent>
               <Typography gutterBottom>{text}</Typography> {/* Card info */}
-              <button onClick={() => dispatch(deleteCard(listID, id))}>
+              <button onClick={() => dispatch(deleteCard(listID, id))}> {/* Delete card with help of listID & id */}
                 Delete
               </button>
             </CardContent>
