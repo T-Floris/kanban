@@ -48,24 +48,7 @@ namespace KNBNDesktopUI.Library.Api
             
         }
 
-        /*
-        public async Task<List<UserModel>> GetAllUsers(int groupId, int GetInGroup)
-        {
 
-            using (HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GetAllUsers/" + groupId + "/" + GetInGroup))
-            {
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsAsync<List<UserModel>>();
-                    return result;
-                }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
-            }
-        }
-        */
 
         #region get all users in and not in selected group
 
@@ -100,7 +83,7 @@ namespace KNBNDesktopUI.Library.Api
         }
 
         #endregion
-
+         
         #region Search functions
 
         public async Task<List<UserModel>> UserInGroupLookup(int groupId, string username)
@@ -220,6 +203,22 @@ namespace KNBNDesktopUI.Library.Api
             {
                 throw new Exception(response.ReasonPhrase);
             }
+        }
+
+        public async Task<List<GroupUserModel>> GetGroupUsers()
+        {
+            using HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Group/Admin/GroupUser/");
+            if(response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadAsAsync<List<GroupUserModel>>();
+                return result;
+
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
+
         }
     }
 }
