@@ -17,9 +17,9 @@ namespace KNBNDesktopUI.Library.Api
 
         #region get all users in and not in selected group
 
-        // Task<List<UserModel>> GetAllUsers(int groupId, int GetInGroup);
-        Task<List<UserModel>> GetAllUsersInGroup(int groupId);
-        Task<List<UserModel>> GetAllUsersNotInGroup(int groupId);
+        Task<List<UserModel>> GetAllUsers(int groupId, bool GetInGroup);
+        //Task<List<UserModel>> GetAllUsersInGroup(int groupId);
+        //Task<List<UserModel>> GetAllUsersNotInGroup(int groupId);
 
         #endregion
 
@@ -36,7 +36,7 @@ namespace KNBNDesktopUI.Library.Api
         Task<List<UserModel>> UserInGroupLookup(int groupId, string username);
         Task<List<GroupModel>> GroupLookup(string groupName);
 
-        #endregion
+        #endregion 
 
         // group permission
 

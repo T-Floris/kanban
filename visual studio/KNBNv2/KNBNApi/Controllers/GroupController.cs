@@ -94,6 +94,17 @@ namespace KNBNApi.Controllers
 
         }
 
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("Admin/GetAllGroups12")]
+        public List<GroupModel> GetAllGroups1()
+        {
+            var groups = _groupData.GetGroups();
+            return groups;
+
+        }
+
         #endregion
 
 
@@ -147,7 +158,7 @@ namespace KNBNApi.Controllers
 
         #endregion
         #region (Admin+) Get all users
-
+        
         [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Admin/GetAllUsers/{groupId}/{GetInGroup}")]
@@ -156,7 +167,7 @@ namespace KNBNApi.Controllers
             var users = _groupData.GetAllUsers(groupId, GetInGroup);
             return users;
         }
-
+        
 
         #endregion
 
@@ -208,6 +219,10 @@ namespace KNBNApi.Controllers
             return permissions;
         }
 
+
+        
+
+
         /*
 
         [HttpGet]
@@ -218,6 +233,8 @@ namespace KNBNApi.Controllers
             return groupUserIsIn;
         }
         */
+
+
 
 
 

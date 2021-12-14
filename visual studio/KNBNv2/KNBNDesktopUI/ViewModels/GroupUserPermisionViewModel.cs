@@ -77,8 +77,8 @@ namespace KNBNDesktopUI.ViewModels
         {
             if (SelectedGroup != null)
             {
-                var userInGroupList = await _groupEndpoint.GetAllUsersInGroup(SelectedGroup.Id);
-                var UserNotInGroupList = await _groupEndpoint.GetAllUsersNotInGroup(SelectedGroup.Id);
+                var userInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, true);
+                var UserNotInGroupList = await _groupEndpoint.GetAllUsers(SelectedGroup.Id, false);
                 UsersInGroup = new BindingList<UserModel>(userInGroupList);
                 Users = new BindingList<UserModel>(UserNotInGroupList);
             }
