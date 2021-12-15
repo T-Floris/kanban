@@ -91,7 +91,7 @@ namespace KNBNDesktopUI.ViewModels
             var user = await _userEndpoint.GetLogtOnUserId();
             if (user == null)
                 return "";
-            return user.UserName + "'s Workspace";            
+            return user.UserName + "'s Board";            
         }
 
         #endregion

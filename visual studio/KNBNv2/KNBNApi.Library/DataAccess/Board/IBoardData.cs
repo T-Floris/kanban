@@ -16,6 +16,7 @@ namespace KNBNApi.Library.DataAccess
         #region GET Board
         List<BoardModel> GetAllBoards();
         List<BoardModel> GetBoardById(int id);
+        List<BoardModel> GetBoardsUserIsNotOwnerOf(string userId);
         #endregion
 
         #region GET All Boards by owner

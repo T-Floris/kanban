@@ -86,7 +86,7 @@ namespace KNBNApi.Controllers
 
         }
 
-
+        [Authorize]
         [HttpGet]
         [Route("Admin/GetAllMemberOfBoards")]
         public List<BoardModel> GetAllMemberOfBoards()
@@ -111,7 +111,7 @@ namespace KNBNApi.Controllers
 
              
             //var boards = _boardData.GetAllUsersBoards(userId);
-            return boardModels;
+            return groups;
 
         }
 
